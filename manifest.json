@@ -1,0 +1,15 @@
+{
+  "name": "Decimo - Sayı Zinciri",
+  "short_name": "Decimo",
+  "description": "Bitisik sayilari birlestir, zincir kur, 11 dunyada 105 bulmacayi coz!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F5",
+  "theme_color": "#E85D52",
+  "orientation": "portrait",
+  "lang": "tr",
+  "icons": [
+    { "src": "assets/decimo_icon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/decimo_icon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

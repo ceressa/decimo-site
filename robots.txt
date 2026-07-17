@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://decimo.dozi.app/sitemap.xml
