@@ -23,8 +23,8 @@
         <div class="nav-container">
             <a href="/" class="nav-logo"><img src="assets/decimo_icon.png" alt="Decimo"><span>Decimo</span></a>
             <ul class="nav-links">
-                <li><a href="/">Ana Sayfa</a></li>
-                <li><a href="account-deletion.html">Hesap Silme</a></li>
+                <li><a href="/" data-i18n="navHome">Ana Sayfa</a></li>
+                <li><a href="account-deletion.html" data-i18n="navDelete">Hesap Silme</a></li>
             </ul>
         </div>
     </nav>
@@ -32,9 +32,9 @@
     <main class="legal-page">
         <div class="legal-container">
             <div class="legal-header">
-                <span class="section-badge">&#128274; Gizlilik</span>
-                <h1>Gizlilik Politikası</h1>
-                <p class="legal-updated">Son Güncelleme / Last updated: 27 Temmuz 2026</p>
+                <span class="section-badge" data-i18n="badge">&#128274; Gizlilik</span>
+                <h1 data-i18n="title">Gizlilik Politikası</h1>
+                <p class="legal-updated" data-i18n="updated">Son Güncelleme: 27 Temmuz 2026</p>
             </div>
 
             <div class="lang-toggle">
@@ -609,14 +609,42 @@
     </footer>
 
     <script>
+
+        var HEAD = {
+            tr: {badge:'\uD83D\uDD12 Gizlilik', title:'Gizlilik Politikası', updated:'Son Güncelleme: 27 Temmuz 2026', navHome:'Ana Sayfa', navDelete:'Hesap Silme'},
+            en: {badge:'\uD83D\uDD12 Privacy', title:'Privacy Policy', updated:'Last updated: 27 July 2026', navHome:'Home', navDelete:'Delete Account'},
+            de: {badge:'\uD83D\uDD12 Datenschutz', title:'Datenschutzerklärung', updated:'Zuletzt aktualisiert: 27. Juli 2026', navHome:'Startseite', navDelete:'Konto löschen'},
+            fr: {badge:'\uD83D\uDD12 Confidentialité', title:'Politique de confidentialité', updated:'Dernière mise à jour : 27 juillet 2026', navHome:'Accueil', navDelete:'Supprimer le compte'},
+            es: {badge:'\uD83D\uDD12 Privacidad', title:'Política de privacidad', updated:'Última actualización: 27 de julio de 2026', navHome:'Inicio', navDelete:'Eliminar cuenta'},
+            it: {badge:'\uD83D\uDD12 Privacy', title:'Informativa sulla privacy', updated:'Ultimo aggiornamento: 27 luglio 2026', navHome:'Home', navDelete:'Elimina account'},
+            pt: {badge:'\uD83D\uDD12 Privacidade', title:'Política de Privacidade', updated:'Última atualização: 27 de julho de 2026', navHome:'Início', navDelete:'Eliminar conta'}
+        };
+        function applyHead(lang){
+            var t = HEAD[lang] || HEAD.en;
+            document.querySelectorAll('[data-i18n]').forEach(function(el){
+                var k = el.getAttribute('data-i18n');
+                if (t[k]) el.textContent = t[k];
+            });
+            document.title = t.title + ' - Decimo';
+        }
+
         document.querySelectorAll('.lang-toggle button').forEach(function(btn){
             btn.addEventListener('click', function(){
                 var lang = btn.getAttribute('data-lang');
                 document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.classList.toggle('active', b===btn); });
                 document.querySelectorAll('.lang-block').forEach(function(bl){ bl.classList.toggle('active', bl.getAttribute('data-lang')===lang); });
                 document.documentElement.lang = lang;
+                applyHead(lang);
             });
         });
+
+        // Ilk acilis: tarayici dili destekleniyorsa onunla ac.
+        (function(){
+            var pref = (navigator.language || 'tr').slice(0,2).toLowerCase();
+            if (!HEAD[pref]) return;
+            var btn = document.querySelector('.lang-toggle button[data-lang="' + pref + '"]');
+            if (btn) btn.click();
+        })();
     </script>
 </body>
 </html>
