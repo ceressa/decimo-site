@@ -1,8 +1,47 @@
 <!DOCTYPE html>
-<html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>Sayfa Bulunamadı - Decimo</title>
 <link rel="icon" type="image/png" href="/assets/decimo_icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#E85D52,#7DD4CC);color:#fff;height:100vh;margin:0;display:grid;place-items:center;text-align:center}
-h1{font-size:5rem;margin:0;font-weight:900}p{font-size:1.2rem;font-weight:700}a{color:#fff;font-weight:900;background:rgba(255,255,255,.2);padding:12px 26px;border-radius:999px;display:inline-block;margin-top:16px;text-decoration:none;border:1.5px solid rgba(255,255,255,.5)}</style>
-</head><body><div><h1>404</h1><p>Bu zincir kopmuş gibi görünüyor.</p><a href="/">Ana sayfaya dön</a></div></body></html>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: Nunito, system-ui, sans-serif; background: #FDF6F0; color: #3A2E5C;
+    min-height: 100vh; margin: 0; display: grid; place-items: center;
+    text-align: center; padding: 24px;
+  }
+  .taslar { display: flex; gap: 10px; justify-content: center; margin-bottom: 26px; }
+  .tas {
+    width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center;
+    font-weight: 900; font-size: 25px; color: #FFF6E9;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,.10), 0 2px 8px rgba(46,44,122,.10);
+  }
+  /* Zincir 4'te kopuyor: sonraki tas soluk ve bos. */
+  .t1 { background: #7FD6C4; } .t2 { background: #FFD37A; } .t3 { background: #FF9CC4; }
+  .kopuk { background: #E7DFF2; color: #B6ABC9; }
+  h1 { font-size: clamp(56px, 12vw, 84px); margin: 0; font-weight: 900; color: #2E2C7A; letter-spacing: -.04em; }
+  p { font-size: 18px; font-weight: 700; color: #7A6E96; margin: 10px 0 28px; }
+  a {
+    color: #fff; font-weight: 800; font-size: 16px; background: #FF5BA3;
+    padding: 14px 28px; border-radius: 999px; display: inline-block; text-decoration: none;
+    box-shadow: 0 6px 18px rgba(255,91,163,.38);
+  }
+</style>
+</head>
+<body>
+<div>
+  <div class="taslar">
+    <span class="tas t1">3</span>
+    <span class="tas t2">4</span>
+    <span class="tas t3">5</span>
+    <span class="tas kopuk">?</span>
+  </div>
+  <h1>404</h1>
+  <p>Bu zincir kopmuş gibi görünüyor.</p>
+  <a href="/">Ana sayfaya dön</a>
+</div>
+</body>
+</html>

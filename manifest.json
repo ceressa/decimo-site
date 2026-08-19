@@ -1,15 +1,25 @@
 {
   "name": "Decimo - Sayı Zinciri",
   "short_name": "Decimo",
-  "description": "Bitisik sayilari birlestir, zincir kur, 11 dunyada 105 bulmacayi coz!",
+  "description": "Bitişik sayıları birleştir, zincir kur, 15 dünyada 145 bulmacayı çöz.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFF9F5",
-  "theme_color": "#E85D52",
+  "background_color": "#FDF6F0",
+  "theme_color": "#2E2C7A",
   "orientation": "portrait",
   "lang": "tr",
   "icons": [
-    { "src": "assets/decimo_icon.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "assets/decimo_icon.png", "sizes": "512x512", "type": "image/png" }
+    {
+      "src": "assets/decimo_icon_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/decimo_icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
   ]
 }
