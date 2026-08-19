@@ -1,206 +1,200 @@
-/* ============================================================
-   Decimo - Site Styles
-   Candy number-chain palette (coral / teal / gold)
-   ============================================================ */
+/* Decimo - decimo.dozi.app
+ *
+ * Palet oyunun kendisinden alindi (lib/theme/app_colors.dart), siteye ozel
+ * renk uydurulmadi. Onceki surumde mercan kirmizisi bir tema vardi ve oyunun
+ * icinde o renk hic gecmiyordu; siteyi gorup uygulamayi acan kisi baska bir
+ * urune bakiyor gibi oluyordu.
+ *
+ * Oyun ACIK ve pastel: krem suluboya zemin, seker taslari, mor yazi. Ikon
+ * lacivert ama o yalnizca ikon; site oyunu yansitiyor, lacivert de derinlik
+ * icin alt bant ve altbilgide kullaniliyor.
+ */
 
 :root {
-    --coral: #E85D52;
-    --coral-light: #F09890;
-    --coral-dark: #C74A40;
-    --teal: #4DB8B0;
-    --teal-light: #7DD4CC;
-    --teal-dark: #3A9089;
-    --gold: #FFD54F;
-    --purple: #9575CD;
-
-    --ink: #2A2A33;
-    --text-secondary: #5A5A66;
-    --text-muted: #8A8A96;
-    --bg: #FFF9F5;
-    --bg-soft: #FDEEE7;
-    --card: #FFFFFF;
-    --line: #F0E2DA;
-
-    --grad-hero: linear-gradient(135deg, #E85D52 0%, #F09890 38%, #7DD4CC 100%);
-    --grad-coral: linear-gradient(135deg, #E85D52 0%, #F0876E 100%);
-    --grad-teal: linear-gradient(135deg, #4DB8B0 0%, #7DD4CC 100%);
-    --grad-candy: linear-gradient(120deg, #E85D52 0%, #FFD54F 50%, #4DB8B0 100%);
-
-    --shadow-sm: 0 2px 6px rgba(200, 90, 70, 0.08);
-    --shadow-md: 0 8px 24px rgba(200, 90, 70, 0.12);
-    --shadow-lg: 0 18px 44px rgba(200, 90, 70, 0.18);
-    --shadow-glow: 0 0 44px rgba(232, 93, 82, 0.30);
-
-    --radius-sm: 10px;
-    --radius-md: 18px;
-    --radius-lg: 28px;
-    --radius-xl: 40px;
-    --radius-full: 999px;
+  --krem:    #FDF6F0;
+  --beyaz:   #FFFFFF;
+  --pembe:   #FF5BA3;
+  --turkuaz: #14C8C8;
+  --sari:    #FFC83D;
+  --lacivert:#2E2C7A;
+  --mor:     #6B5CA5;
+  --ink:     #3A2E5C;
+  --soluk:   #7A6E96;
+  --cizgi:   rgba(46, 44, 122, .10);
+  --golge-s: 0 2px 8px rgba(46, 44, 122, .08);
+  --golge-o: 0 8px 24px rgba(46, 44, 122, .12);
+  --golge-b: 0 18px 48px rgba(46, 44, 122, .18);
+  --r:       20px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* GORSELLERDE height:auto SART. width/height oznitelikleri CLS icin duruyor
+   ama CSS yalnizca genisligi ezerse yukseklik oznitelikteki degerde kaliyor:
+   1080x2160'lik ekran goruntusu 2160 piksel yuksekliginde bir satir aciyor ve
+   kahramanin metin sutunu ekranin cok altina dusuyordu. */
+img { max-width: 100%; height: auto; display: block; }
+
 html { scroll-behavior: smooth; }
+
 body {
-    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    line-height: 1.65;
-    color: var(--ink);
-    background: var(--bg);
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  background: var(--krem);
+  color: var(--ink);
+  font-family: Nunito, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
-a { color: inherit; text-decoration: none; }
-img { max-width: 100%; display: block; }
-.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-/* ================= Navbar ================= */
-.navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255, 249, 245, 0.85);
-    backdrop-filter: saturate(180%) blur(14px);
-    border-bottom: 1px solid var(--line);
-}
-.nav-container {
-    max-width: 1120px; margin: 0 auto; padding: 14px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-}
-.nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.15rem; }
-.nav-logo img { height: 34px; width: auto; }
-.nav-logo span { background: var(--grad-coral); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.nav-links { display: flex; align-items: center; gap: 26px; list-style: none; }
-.nav-links a { font-weight: 700; color: var(--text-secondary); transition: color .2s; }
-.nav-links a:hover { color: var(--coral); }
-.nav-cta {
-    background: var(--grad-coral); color: #fff !important;
-    padding: 9px 20px; border-radius: var(--radius-full);
-    box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s;
-}
-.nav-cta:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-.mobile-menu-btn { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
-.mobile-menu-btn span { width: 24px; height: 2.5px; background: var(--ink); border-radius: 2px; }
+.kap { width: min(1120px, 92vw); margin: 0 auto; }
 
-/* ================= Hero ================= */
-.hero {
-    position: relative; padding: 150px 0 90px; overflow: hidden;
-    background: var(--grad-hero); color: #fff; text-align: center;
-}
-.hero::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 90px;
-    background: var(--bg);
-    clip-path: polygon(0 100%, 100% 100%, 100% 40%, 0 90%);
-}
-.hero-inner { position: relative; z-index: 3; max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.hero-logo { height: 96px; width: auto; margin: 0 auto 22px; filter: drop-shadow(0 8px 20px rgba(0,0,0,.18)); }
-.hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.5px; }
-.hero .subtitle { font-size: clamp(1.05rem, 2.5vw, 1.35rem); font-weight: 600; opacity: .95; margin-top: 16px; }
-.hero-badge {
-    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 22px;
-    background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.35);
-    padding: 7px 16px; border-radius: var(--radius-full); font-weight: 800; font-size: .85rem;
-    backdrop-filter: blur(4px);
-}
-.hero-cta { margin-top: 32px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.btn {
-    display: inline-flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1rem;
-    padding: 14px 28px; border-radius: var(--radius-full); border: none; cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
-}
-.btn-primary { background: #fff; color: var(--coral); box-shadow: var(--shadow-md); }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
-.btn-ghost { background: rgba(255,255,255,.16); color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
-.btn-ghost:hover { background: rgba(255,255,255,.26); transform: translateY(-3px); }
+a { color: var(--pembe); }
 
-/* floating number chips */
-.chip {
-    position: absolute; z-index: 1; width: 58px; height: 58px; border-radius: 16px;
-    display: grid; place-items: center; font-weight: 900; font-size: 1.5rem; color: #fff;
-    background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,255,255,.4);
-    backdrop-filter: blur(3px); animation: float 7s ease-in-out infinite;
+/* ── Ust bar ─────────────────────────────────────────────────────────── */
+.ust {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(253, 246, 240, .88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--cizgi);
 }
-.chip.c1 { top: 18%; left: 8%; animation-delay: 0s; }
-.chip.c2 { top: 30%; right: 10%; animation-delay: 1.2s; }
-.chip.c3 { top: 62%; left: 12%; animation-delay: 2.1s; }
-.chip.c4 { top: 55%; right: 8%; animation-delay: .6s; }
-.chip.c5 { top: 12%; right: 26%; animation-delay: 1.8s; }
-@keyframes float { 0%,100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-16px) rotate(4deg); } }
-@media (max-width: 640px) { .chip { display: none; } }
+.ust .kap { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+.marka { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+.marka img { width: 40px; height: 40px; border-radius: 11px; box-shadow: var(--golge-s); }
+.marka b { font-size: 20px; font-weight: 900; letter-spacing: -.02em; }
+.ust nav { margin-left: auto; display: flex; gap: 22px; }
+.ust nav a { color: var(--soluk); text-decoration: none; font-weight: 700; font-size: 15px; }
+.ust nav a:hover { color: var(--pembe); }
+@media (max-width: 720px) { .ust nav { display: none; } }
 
-/* ================= Sections ================= */
-.section { padding: 84px 0; }
-.section-head { text-align: center; max-width: 640px; margin: 0 auto 52px; }
-.section-badge {
-    display: inline-block; background: var(--bg-soft); color: var(--coral);
-    font-weight: 800; font-size: .8rem; letter-spacing: .5px; text-transform: uppercase;
-    padding: 6px 14px; border-radius: var(--radius-full); margin-bottom: 14px;
+/* ── Butonlar ────────────────────────────────────────────────────────── */
+.dugmeler { display: flex; gap: 12px; flex-wrap: wrap; }
+.dugme {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 14px 24px; border-radius: 999px;
+  font-weight: 800; font-size: 16px; text-decoration: none;
+  transition: transform .16s ease, box-shadow .16s ease;
+  white-space: nowrap;
 }
-.section-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 900; letter-spacing: -0.5px; }
-.section-head p { color: var(--text-secondary); font-size: 1.08rem; margin-top: 12px; }
+.dugme:hover { transform: translateY(-2px); }
+.d-play  { background: var(--pembe);    color: #fff; box-shadow: 0 6px 18px rgba(255, 91, 163, .38); }
+.d-play:hover  { box-shadow: 0 10px 26px rgba(255, 91, 163, .46); }
+.d-apple { background: var(--lacivert); color: #fff; box-shadow: 0 6px 18px rgba(46, 44, 122, .34); }
+.d-apple:hover { box-shadow: 0 10px 26px rgba(46, 44, 122, .44); }
+.dugme svg { width: 20px; height: 20px; fill: currentColor; flex: none; }
 
-/* feature grid */
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
-.card {
-    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg);
-    padding: 30px; box-shadow: var(--shadow-sm); transition: transform .25s, box-shadow .25s;
+/* ── Kahraman ────────────────────────────────────────────────────────── */
+.kahraman { padding: 72px 0 84px; overflow: hidden; }
+.kahraman .kap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+.rozet {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(20, 200, 200, .14); color: #0E8F8F;
+  padding: 7px 15px; border-radius: 999px;
+  font-weight: 800; font-size: 14px; margin-bottom: 22px;
 }
-.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-.card-ico {
-    width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
-    font-size: 1.7rem; margin-bottom: 18px; color: #fff;
+.kahraman h1 {
+  font-size: clamp(38px, 5.4vw, 60px); font-weight: 900;
+  line-height: 1.08; letter-spacing: -.03em; color: var(--lacivert);
 }
-.i-coral { background: var(--grad-coral); }
-.i-teal { background: var(--grad-teal); }
-.i-gold { background: linear-gradient(135deg, #FFD54F, #FFB300); }
-.i-purple { background: linear-gradient(135deg, #9575CD, #7E57C2); }
-.card h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 8px; }
-.card p { color: var(--text-secondary); font-size: .98rem; }
+.kahraman h1 em { font-style: normal; color: var(--pembe); }
+.kahraman .alt { font-size: 19px; color: var(--soluk); margin: 20px 0 30px; max-width: 33em; }
+.kucuk { font-size: 14px; color: var(--soluk); margin-top: 16px; }
 
-/* worlds strip */
-.worlds { background: var(--bg-soft); }
-.world-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-.world-pill {
-    background: #fff; border: 1px solid var(--line); border-radius: var(--radius-full);
-    padding: 12px 22px; font-weight: 800; box-shadow: var(--shadow-sm);
-    display: inline-flex; align-items: center; gap: 9px;
+.telefon { justify-self: center; position: relative; }
+.telefon img {
+  width: min(310px, 74vw); border-radius: 30px;
+  box-shadow: var(--golge-b); display: block;
+  border: 7px solid #fff;
 }
-.world-pill .dot { width: 12px; height: 12px; border-radius: 50%; }
-
-/* how it works */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; counter-reset: step; }
-.step { position: relative; padding: 30px 26px 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
-.step::before {
-    counter-increment: step; content: counter(step);
-    position: absolute; top: -18px; left: 26px; width: 40px; height: 40px;
-    background: var(--grad-coral); color: #fff; border-radius: 50%;
-    display: grid; place-items: center; font-weight: 900; box-shadow: var(--shadow-sm);
+/* Arkadaki yumusak leke: ekran goruntusu krem zeminde yuzer gibi durmasin. */
+.telefon::before {
+  content: ""; position: absolute; inset: -12% -18%;
+  background: radial-gradient(closest-side, rgba(255, 91, 163, .20), transparent 72%);
+  z-index: -1;
 }
-.step h3 { margin: 12px 0 6px; font-weight: 800; }
-.step p { color: var(--text-secondary); font-size: .96rem; }
-
-/* CTA band */
-.cta-band { text-align: center; }
-.cta-box {
-    background: var(--grad-candy); border-radius: var(--radius-xl); padding: 60px 32px; color: #fff;
-    box-shadow: var(--shadow-lg);
+@media (max-width: 880px) {
+  .kahraman .kap { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+  .dugmeler, .rozet { justify-content: center; }
+  .kahraman .alt { margin-inline: auto; }
 }
-.cta-box h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 900; }
-.cta-box p { opacity: .95; font-weight: 600; margin: 12px 0 26px; font-size: 1.1rem; }
 
-/* ================= Footer ================= */
-.footer { background: #2A2A33; color: #CFCFD6; padding: 56px 0 28px; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-.footer-brand .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-.footer-brand .footer-logo img { height: 34px; }
-.footer-brand .footer-logo span { font-weight: 900; color: #fff; font-size: 1.1rem; }
-.footer-brand p { color: #9A9AA4; font-size: .95rem; max-width: 320px; }
-.footer-links h4 { color: #fff; font-weight: 800; margin-bottom: 14px; font-size: .95rem; }
-.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.footer-links a { color: #9A9AA4; font-size: .93rem; transition: color .2s; }
-.footer-links a:hover { color: var(--teal-light); }
-.footer-bottom { border-top: 1px solid #3C3C46; margin-top: 40px; padding-top: 22px; text-align: center; color: #7A7A86; font-size: .88rem; }
-
-@media (max-width: 860px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-    .nav-links { display: none; }
+/* ── Bolumler ────────────────────────────────────────────────────────── */
+section { padding: 76px 0; }
+.beyaz-bolum { background: var(--beyaz); }
+h2 {
+  font-size: clamp(28px, 3.6vw, 40px); font-weight: 900;
+  letter-spacing: -.02em; color: var(--lacivert); text-align: center;
 }
-@media (max-width: 520px) {
-    .footer-grid { grid-template-columns: 1fr; }
+.bolum-alt { text-align: center; color: var(--soluk); margin: 12px auto 44px; max-width: 40em; }
+
+/* ── Nasil oynanir ───────────────────────────────────────────────────── */
+.adimlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.adim {
+  background: var(--krem); border: 1px solid var(--cizgi);
+  border-radius: var(--r); padding: 30px 26px; text-align: center;
+}
+.beyaz-bolum .adim { background: var(--beyaz); box-shadow: var(--golge-s); border-color: transparent; }
+.adim h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--lacivert); }
+.adim p { color: var(--soluk); font-size: 15.5px; }
+.taslar { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
+/* Taslar oyundaki hucrelerin sadelestirilmis hali: ayni yuvarlaklik, ayni
+   pastel doygunluk, ayni krem rakam. */
+.tas {
+  width: 46px; height: 46px; border-radius: 14px;
+  display: grid; place-items: center;
+  font-weight: 900; font-size: 22px; color: #FFF6E9;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, .10), var(--golge-s);
+}
+.t1 { background: #7FD6C4; } .t2 { background: #FFD37A; } .t3 { background: #FF9CC4; }
+.t4 { background: #9BC8F0; } .t5 { background: #C3A9E8; } .t6 { background: #F79C8D; }
+.ok { align-self: center; color: var(--soluk); font-weight: 900; }
+@media (max-width: 820px) { .adimlar { grid-template-columns: 1fr; } }
+
+/* ── Ozellikler ──────────────────────────────────────────────────────── */
+.ozellikler { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.ozellik {
+  background: var(--beyaz); border-radius: var(--r); padding: 26px 22px;
+  box-shadow: var(--golge-s); text-align: center;
+}
+.krem-bolum .ozellik { background: var(--krem); box-shadow: none; border: 1px solid var(--cizgi); }
+.ozellik .sayi { font-size: 34px; font-weight: 900; color: var(--pembe); line-height: 1.1; }
+.ozellik h3 { font-size: 17px; font-weight: 800; margin: 6px 0 6px; color: var(--lacivert); }
+.ozellik p { font-size: 14.5px; color: var(--soluk); }
+@media (max-width: 900px) { .ozellikler { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ozellikler { grid-template-columns: 1fr; } }
+
+/* ── Ekran goruntuleri ───────────────────────────────────────────────── */
+.vitrin { display: flex; gap: 20px; overflow-x: auto; padding: 6px 2px 20px; scroll-snap-type: x mandatory; }
+.vitrin figure { flex: none; width: 232px; scroll-snap-align: center; }
+.vitrin img {
+  width: 100%; border-radius: 22px; display: block;
+  box-shadow: var(--golge-o); border: 5px solid #fff;
+}
+.vitrin figcaption { text-align: center; font-size: 14.5px; color: var(--soluk); margin-top: 12px; font-weight: 700; }
+
+/* ── Numo bandi ──────────────────────────────────────────────────────── */
+.numo-bant { background: var(--lacivert); color: #fff; }
+.numo-bant .kap { display: grid; grid-template-columns: 190px 1fr; gap: 40px; align-items: center; }
+.numo-bant img { width: 190px; height: 190px; }
+.numo-bant h2 { color: #fff; text-align: left; }
+.numo-bant p { color: rgba(255, 255, 255, .78); margin-top: 12px; max-width: 44em; }
+@media (max-width: 780px) {
+  .numo-bant .kap { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .numo-bant h2 { text-align: center; }
+}
+
+/* ── Kapanis ─────────────────────────────────────────────────────────── */
+.kapanis { text-align: center; }
+.kapanis .dugmeler { justify-content: center; margin-top: 28px; }
+
+/* ── Altbilgi ────────────────────────────────────────────────────────── */
+footer { background: #221F5C; color: rgba(255, 255, 255, .72); padding: 46px 0 34px; font-size: 14.5px; }
+footer .kap { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+footer a { color: rgba(255, 255, 255, .88); text-decoration: none; }
+footer a:hover { color: var(--sari); }
+.f-baglantilar { display: flex; gap: 18px; flex-wrap: wrap; margin-left: auto; }
+.f-alt { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 13.5px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+  html { scroll-behavior: auto; }
 }
