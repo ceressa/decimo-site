@@ -135,6 +135,8 @@ h2 {
 .beyaz-bolum .adim { background: var(--beyaz); box-shadow: var(--golge-s); border-color: transparent; }
 .adim h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--lacivert); }
 .adim p { color: var(--soluk); font-size: 15.5px; }
+/* Puan sayisi cumlenin vurgusu; soluk gri kalirsa gozden kaciyor. */
+.adim p strong { color: var(--pembe); font-weight: 900; }
 .taslar { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
 /* Taslar oyundaki hucrelerin sadelestirilmis hali: ayni yuvarlaklik, ayni
    pastel doygunluk, ayni krem rakam. */
