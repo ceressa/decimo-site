@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decimo'yu indir</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#2E2C7A">
+<link rel="icon" href="favicon.ico">
+
+<!-- Cihaza gore magazaya yonlendirir.
+     NEDEN VAR: Google uygulama kampanyasi tek magazaya bagli, yani Android
+     kampanyasi iOS kullanicisina hicbir sekilde ulasamiyor. Arama/Display
+     kampanyasi ise normal bir URL'ye tiklatabiliyor. Bu sayfa o URL.
+
+     JAVASCRIPT KAPALIYSA DA CALISIR: iki dugme HTML'de duruyor, yonlendirme
+     yalnizca ustune biniyor. -->
+
+<link rel="preconnect" href="https://play.google.com">
+<link rel="preconnect" href="https://apps.apple.com">
+
+<style>
+  :root{ --mor:#2E2C7A; --krem:#FFF8F0; --metin:#2A2A33; --soluk:#6B6B76; --kenar:#E8DFD4; }
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100dvh; display:flex; align-items:center; justify-content:center;
+    padding:24px; background:var(--krem); color:var(--metin);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    text-align:center;
+  }
+  .kart{max-width:400px;width:100%}
+  .ikon{width:84px;height:84px;border-radius:20px;box-shadow:0 6px 20px rgba(46,44,122,.16)}
+  h1{font-size:26px;margin:18px 0 4px;letter-spacing:-.01em}
+  .alt{margin:0 0 26px;color:var(--soluk)}
+  a.dugme{
+    display:block; padding:15px 20px; margin:10px 0; border-radius:14px;
+    text-decoration:none; font-weight:600; font-size:17px;
+    background:var(--mor); color:#fff; border:1px solid transparent;
+  }
+  a.dugme.ikincil{background:#fff;color:var(--mor);border-color:var(--kenar)}
+  .not{margin-top:18px;font-size:13px;color:var(--soluk)}
+  .gizle{display:none}
+</style>
+</head>
+<body>
+<main class="kart">
+  <img class="ikon" src="assets/decimo_icon.png" alt="Decimo" onerror="this.style.display='none'">
+  <h1>Decimo</h1>
+  <p class="alt">Bitişik sayıları sürükle, zincir kur.</p>
+
+  <a id="play" class="dugme"
+     href="https://play.google.com/store/apps/details?id=com.bardino.numberchain">Google Play'den indir</a>
+  <a id="ios" class="dugme ikincil"
+     href="https://apps.apple.com/tr/app/decimo-number-chain/id6792291932">App Store'dan indir</a>
+
+  <p class="not" id="not">Mağazaya yönlendiriliyorsun...</p>
+</main>
+
+<script>
+(function () {
+  var PAKET = "com.bardino.numberchain";
+  var gelen = new URLSearchParams(window.location.search);
+
+  // PLAY: rastgele parametre eklemek ise yaramaz, Play bilmedigini atar.
+  // Kurulum atfi YALNIZCA `referrer` icinden gecer ve icerigi URL-kodlu
+  // olmak zorunda. Reklamdan gelen utm_* varsa onu kullan, yoksa sayfayi
+  // isaretle ki organik tikla reklam tiki karismasin.
+  var utm = new URLSearchParams();
+  utm.set("utm_source", gelen.get("utm_source") || "indir_sayfasi");
+  utm.set("utm_medium", gelen.get("utm_medium") || "web");
+  utm.set("utm_campaign", gelen.get("utm_campaign") || "iki_magaza");
+  if (gelen.get("gclid")) utm.set("gclid", gelen.get("gclid"));
+
+  var play = document.getElementById("play");
+  var ios = document.getElementById("ios");
+  var not = document.getElementById("not");
+
+  play.href = "https://play.google.com/store/apps/details?id=" + PAKET +
+              "&referrer=" + encodeURIComponent(utm.toString());
+
+  // APPLE: kampanya jetonu (`pt`+`ct`) saglayici kimligi ister, bizde yok;
+  // yarim gonderilirse Apple ikisini de yok sayar. O yuzden utm_* oldugu gibi
+  // ekleniyor: App Store zararsizca yutuyor, en azindan yonlendiren sunucu
+  // kaydinda kaynak gorunuyor.
+  ios.href += "?" + utm.toString();
+
+  var ua = navigator.userAgent || "";
+  // iPadOS 13+ kendini Mac gibi tanitiyor; dokunma noktasi sayisi ayiriyor.
+  var iOS = /iPad|iPhone|iPod/.test(ua) ||
+            (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+
+  if (iOS) {
+    ios.className = "dugme";
+    play.className = "dugme gizle";
+    window.location.replace(ios.href);
+  } else if (/Android/.test(ua)) {
+    ios.className = "dugme gizle";
+    window.location.replace(play.href);
+  } else {
+    // Masaustu: yonlendirme YOK, iki secenek de dursun.
+    not.textContent = "Telefonundan aç, seni doğru mağazaya götürelim.";
+  }
+})();
+</script>
+</body>
+</html>
