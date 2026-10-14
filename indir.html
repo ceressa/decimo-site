@@ -51,7 +51,7 @@
   <a id="play" class="dugme"
      href="https://play.google.com/store/apps/details?id=com.bardino.numberchain">Google Play'den indir</a>
   <a id="ios" class="dugme ikincil"
-     href="https://apps.apple.com/tr/app/decimo-number-chain/id6792291932">App Store'dan indir</a>
+     href="https://apps.apple.com/app/decimo-number-chain/id6792291932">App Store'dan indir</a>
 
   <p class="not" id="not">Mağazaya yönlendiriliyorsun...</p>
 </main>
@@ -74,6 +74,33 @@
   var play = document.getElementById("play");
   var ios = document.getElementById("ios");
   var not = document.getElementById("not");
+
+  // Paylasim linki (shareAppText) bu sayfaya geliyor, alan kisi her dilden
+  // olabilir. Telefonlar asagida hemen yonlendiriliyor; metni goren masaustu
+  // ziyaretcisi, ona tarayicisinin dilinde yaz. HTML'deki Turkce metin
+  // betiksiz hal ve Turkce reklam kampanyasinin varsayilani.
+  var METIN = {
+    en: ["Link neighboring numbers, build the chain.", "Get it on Google Play", "Download on the App Store",
+         "Taking you to the store...", "Open this page on your phone and we'll take you to the right store."],
+    de: ["Verbinde benachbarte Zahlen, bau die Kette.", "Bei Google Play laden", "Im App Store laden",
+         "Du wirst zum Store weitergeleitet...", "Öffne diese Seite auf dem Handy, dann bringen wir dich zum richtigen Store."],
+    fr: ["Relie des nombres voisins, construis la chaîne.", "Disponible sur Google Play", "Télécharger dans l'App Store",
+         "Redirection vers le store...", "Ouvre cette page sur ton téléphone, on t'emmène au bon store."],
+    es: ["Une números vecinos y forma la cadena.", "Descargar en Google Play", "Descargar en el App Store",
+         "Te llevamos a la tienda...", "Abre esta página en tu móvil y te llevamos a la tienda correcta."],
+    pt: ["Ligue números vizinhos e monte a corrente.", "Baixar no Google Play", "Baixar na App Store",
+         "Levando você para a loja...", "Abra esta página no celular e levamos você para a loja certa."]
+  };
+  var dil = ((navigator.languages && navigator.languages[0]) || navigator.language || "tr").slice(0, 2).toLowerCase();
+  var m = METIN[dil];
+  if (m) {
+    document.documentElement.lang = dil;
+    document.title = "Decimo";
+    document.querySelector(".alt").textContent = m[0];
+    play.textContent = m[1];
+    ios.textContent = m[2];
+    not.textContent = m[3];
+  }
 
   play.href = "https://play.google.com/store/apps/details?id=" + PAKET +
               "&referrer=" + encodeURIComponent(utm.toString());
@@ -98,7 +125,7 @@
     window.location.replace(play.href);
   } else {
     // Masaustu: yonlendirme YOK, iki secenek de dursun.
-    not.textContent = "Telefonundan aç, seni doğru mağazaya götürelim.";
+    not.textContent = m ? m[4] : "Telefonundan aç, seni doğru mağazaya götürelim.";
   }
 })();
 </script>
