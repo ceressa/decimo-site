@@ -311,3 +311,10 @@ footer a:hover { color: var(--sari); }
   .d-apple { background: #503C82; }
   footer { background: #1C1030; }
 }
+
+/* Bardino kilidi ve acilis filmi (assets/bardino-intro.js). Nokta ucarken
+   kutunun ustune cikiyor; overflow gorunur olmali. Kontur ve golge rengi
+   --bi-edge'den, yazi currentColor'dan. */
+.bardino-intro { overflow: visible; }
+.bardino-intro .bi-ef { fill: var(--bi-edge, #1B2F4A); }
+.bardino-intro .bi-es { stroke: var(--bi-edge, #1B2F4A); }
