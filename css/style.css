@@ -25,6 +25,47 @@
   --golge-o: 0 8px 24px rgba(46, 44, 122, .12);
   --golge-b: 0 18px 48px rgba(46, 44, 122, .18);
   --r:       20px;
+
+  /* Lacivert hem baslik rengi hem dugme/bant zemini. Koyu temada baslik
+     acilmali, zeminler kalmali; o yuzden baslik ayri bir ad. */
+  --baslik:  var(--lacivert);
+  --ust:     rgba(253, 246, 240, .88);
+  --rozet-z: rgba(20, 200, 200, .14);
+  --rozet-y: #0E8F8F;
+  --dolgu-y: #fff;
+  color-scheme: light dark;
+}
+
+/* Koyu tema: sistem tercihine uyuyor, bardino.app ile ayni kural. Renkler
+   uygulamanin kendi koyu temasindan (lib/theme/app_colors.dart,
+   ThemeColors.dark): zemin #241640, yuzey #3A2A5E, metin #F5ECFA / #C4B8D8,
+   pembe #FF7AB8, turkuaz #3FE0E0, sari #FFD96E. Pembe dolgunun uzerindeki
+   yazi beyaz degil oyunun onPrimary'si (#53283C): beyaz o pembede 2.41,
+   onPrimary 5.03. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --krem:    #241640;
+    --beyaz:   #3A2A5E;
+    --pembe:   #FF7AB8;
+    --turkuaz: #3FE0E0;
+    --sari:    #FFD96E;
+    --mor:     #B57FF0;
+    --ink:     #F5ECFA;
+    --soluk:   #C4B8D8;
+    --baslik:  #F5ECFA;
+    --cizgi:   rgba(255, 255, 255, .10);
+    --golge-s: 0 2px 8px rgba(0, 0, 0, .25);
+    --golge-o: 0 8px 24px rgba(0, 0, 0, .30);
+    --golge-b: 0 18px 48px rgba(0, 0, 0, .40);
+    --ust:     rgba(36, 22, 64, .88);
+    --rozet-z: rgba(63, 224, 224, .14);
+    --rozet-y: #3FE0E0;
+    --dolgu-y: #53283C;
+  }
+  /* Lacivert dugme ve altbilgi koyu zeminde kayboluyordu; uygulamanin bir
+     ust yuzeyi (#503C82) ve izgara zemini (#1C1030) ayirt ediyor. */
+  .d-apple { background: #503C82; }
+  footer, .footer { background: #1C1030; }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +94,7 @@ a { color: var(--pembe); }
 /* ── Ust bar ─────────────────────────────────────────────────────────── */
 .ust {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(253, 246, 240, .88);
+  background: var(--ust);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--cizgi);
 }
@@ -76,7 +117,7 @@ a { color: var(--pembe); }
   white-space: nowrap;
 }
 .dugme:hover { transform: translateY(-2px); }
-.d-play  { background: var(--pembe);    color: #fff; box-shadow: 0 6px 18px rgba(255, 91, 163, .38); }
+.d-play  { background: var(--pembe);    color: var(--dolgu-y); box-shadow: 0 6px 18px rgba(255, 91, 163, .38); }
 .d-play:hover  { box-shadow: 0 10px 26px rgba(255, 91, 163, .46); }
 .d-apple { background: var(--lacivert); color: #fff; box-shadow: 0 6px 18px rgba(46, 44, 122, .34); }
 .d-apple:hover { box-shadow: 0 10px 26px rgba(46, 44, 122, .44); }
@@ -87,13 +128,13 @@ a { color: var(--pembe); }
 .kahraman .kap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
 .rozet {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20, 200, 200, .14); color: #0E8F8F;
+  background: var(--rozet-z); color: var(--rozet-y);
   padding: 7px 15px; border-radius: 999px;
   font-weight: 800; font-size: 14px; margin-bottom: 22px;
 }
 .kahraman h1 {
   font-size: clamp(38px, 5.4vw, 60px); font-weight: 900;
-  line-height: 1.08; letter-spacing: -.03em; color: var(--lacivert);
+  line-height: 1.08; letter-spacing: -.03em; color: var(--baslik);
 }
 .kahraman h1 em { font-style: normal; color: var(--pembe); }
 .kahraman .alt { font-size: 19px; color: var(--soluk); margin: 20px 0 30px; max-width: 33em; }
@@ -122,7 +163,7 @@ section { padding: 76px 0; }
 .beyaz-bolum { background: var(--beyaz); }
 h2 {
   font-size: clamp(28px, 3.6vw, 40px); font-weight: 900;
-  letter-spacing: -.02em; color: var(--lacivert); text-align: center;
+  letter-spacing: -.02em; color: var(--baslik); text-align: center;
 }
 .bolum-alt { text-align: center; color: var(--soluk); margin: 12px auto 44px; max-width: 40em; }
 
@@ -133,7 +174,7 @@ h2 {
   border-radius: var(--r); padding: 30px 26px; text-align: center;
 }
 .beyaz-bolum .adim { background: var(--beyaz); box-shadow: var(--golge-s); border-color: transparent; }
-.adim h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--lacivert); }
+.adim h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; color: var(--baslik); }
 .adim p { color: var(--soluk); font-size: 15.5px; }
 /* Puan sayisi cumlenin vurgusu; soluk gri kalirsa gozden kaciyor. */
 .adim p strong { color: var(--pembe); font-weight: 900; }
@@ -159,7 +200,7 @@ h2 {
 }
 .krem-bolum .ozellik { background: var(--krem); box-shadow: none; border: 1px solid var(--cizgi); }
 .ozellik .sayi { font-size: 34px; font-weight: 900; color: var(--pembe); line-height: 1.1; }
-.ozellik h3 { font-size: 17px; font-weight: 800; margin: 6px 0 6px; color: var(--lacivert); }
+.ozellik h3 { font-size: 17px; font-weight: 800; margin: 6px 0 6px; color: var(--baslik); }
 .ozellik p { font-size: 14.5px; color: var(--soluk); }
 @media (max-width: 900px) { .ozellikler { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .ozellikler { grid-template-columns: 1fr; } }

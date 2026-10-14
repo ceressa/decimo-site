@@ -11,7 +11,7 @@
 /* ── Ust bar ─────────────────────────────────────────────────────────── */
 .navbar {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(253, 246, 240, .88);
+  background: var(--ust);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--cizgi);
 }
@@ -33,12 +33,12 @@
 .legal-header { text-align: center; margin-bottom: 38px; }
 .section-badge {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(20, 200, 200, .14); color: #0E8F8F;
+  background: var(--rozet-z); color: var(--rozet-y);
   padding: 7px 15px; border-radius: 999px; font-weight: 800; font-size: 14px;
 }
 .legal-header h1 {
   font-size: clamp(30px, 4.4vw, 42px); font-weight: 900;
-  letter-spacing: -.03em; color: var(--lacivert); margin-top: 14px; line-height: 1.15;
+  letter-spacing: -.03em; color: var(--baslik); margin-top: 14px; line-height: 1.15;
 }
 .legal-updated { font-size: 14.5px; color: var(--soluk); font-weight: 700; margin-top: 8px; }
 
@@ -52,7 +52,7 @@
 .legal-section { margin-bottom: 30px; }
 .legal-section:last-child { margin-bottom: 0; }
 .legal-section h2 {
-  font-size: 20px; font-weight: 800; color: var(--lacivert); line-height: 1.3;
+  font-size: 20px; font-weight: 800; color: var(--baslik); line-height: 1.3;
   margin-bottom: 11px; padding-left: 14px; border-left: 4px solid var(--pembe);
   /* style.css'teki h2 bolum basligi ortali; hukuk metninde sola yaslanmali. */
   text-align: left;
@@ -92,7 +92,7 @@
 }
 .lang-toggle button:hover { color: var(--pembe); }
 .lang-toggle button.active {
-  background: var(--pembe); color: #fff; border-color: transparent;
+  background: var(--pembe); color: var(--dolgu-y); border-color: transparent;
   box-shadow: 0 4px 12px rgba(255, 91, 163, .34);
 }
 .lang-block { display: none; }
@@ -107,7 +107,7 @@
 .step-del::before {
   counter-increment: dstep; content: counter(dstep);
   position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-  width: 30px; height: 30px; background: var(--pembe); color: #fff;
+  width: 30px; height: 30px; background: var(--pembe); color: var(--dolgu-y);
   border-radius: 50%; display: grid; place-items: center; font-weight: 900; font-size: 15px;
 }
 

@@ -29,6 +29,15 @@
     padding: 14px 28px; border-radius: 999px; display: inline-block; text-decoration: none;
     box-shadow: 0 6px 18px rgba(255,91,163,.38);
   }
+  :root { color-scheme: light dark; }
+  /* Koyu tema: style.css ile ayni degerler (uygulamanin ThemeColors.dark). */
+  @media (prefers-color-scheme: dark) {
+    body { background: #241640; color: #F5ECFA; }
+    h1 { color: #F5ECFA; }
+    p { color: #C4B8D8; }
+    .kopuk { background: #3A2A5E; color: #9385AE; }
+    a { background: #FF7AB8; color: #53283C; }
+  }
 </style>
 </head>
 <body>
