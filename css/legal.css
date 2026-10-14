@@ -8,23 +8,8 @@
  * dokunmamak, cevirileri riske atmamak icin yalnizca gorunum yeniden yazildi.
  */
 
-/* ── Ust bar ─────────────────────────────────────────────────────────── */
-.navbar {
-  position: sticky; top: 0; z-index: 50;
-  background: var(--ust);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--cizgi);
-}
-.nav-container {
-  width: min(1120px, 92vw); margin: 0 auto;
-  display: flex; align-items: center; gap: 14px; padding: 12px 0;
-}
-.nav-logo { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
-.nav-logo img { width: 40px; height: 40px; border-radius: 11px; box-shadow: var(--golge-s); }
-.nav-logo span { font-size: 20px; font-weight: 900; letter-spacing: -.02em; }
-.nav-links { list-style: none; margin-left: auto; display: flex; gap: 22px; padding: 0; }
-.nav-links a { color: var(--soluk); text-decoration: none; font-weight: 700; font-size: 15px; }
-.nav-links a:hover { color: var(--pembe); }
+/* Ust bar ve altbilgi ana sayfayla AYNI isaretleme (.ust, footer.aile);
+   stilleri style.css'te. Eskiden burada ayri bir .navbar ve .footer vardi. */
 
 /* ── Sayfa govdesi ───────────────────────────────────────────────────── */
 .legal-page { background: var(--krem); min-height: 100vh; }
@@ -109,17 +94,6 @@
   position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
   width: 30px; height: 30px; background: var(--pembe); color: var(--dolgu-y);
   border-radius: 50%; display: grid; place-items: center; font-weight: 900; font-size: 15px;
-}
-
-/* ── Altbilgi ────────────────────────────────────────────────────────── */
-.footer { background: #221F5C; color: rgba(255, 255, 255, .72); padding: 34px 0; font-size: 14.5px; }
-.footer .container { width: min(1120px, 92vw); margin: 0 auto; text-align: center; }
-.footer a { color: var(--sari); text-decoration: none; font-weight: 700; }
-.footer a:hover { text-decoration: underline; }
-
-@media (max-width: 620px) {
-  .nav-links { gap: 16px; }
-  .nav-links a { font-size: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

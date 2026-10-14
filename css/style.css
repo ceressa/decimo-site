@@ -62,10 +62,6 @@
     --rozet-y: #3FE0E0;
     --dolgu-y: #53283C;
   }
-  /* Lacivert dugme ve altbilgi koyu zeminde kayboluyordu; uygulamanin bir
-     ust yuzeyi (#503C82) ve izgara zemini (#1C1030) ayirt ediyor. */
-  .d-apple { background: #503C82; }
-  footer, .footer { background: #1C1030; }
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -230,14 +226,46 @@ h2 {
 .kapanis .dugmeler { justify-content: center; margin-top: 28px; }
 
 /* ── Altbilgi ────────────────────────────────────────────────────────── */
-footer { background: #221F5C; color: rgba(255, 255, 255, .72); padding: 46px 0 34px; font-size: 14.5px; }
-footer .kap { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+/* Uc oyun sitesinde ayni yapi: Bardino logosu, tek cumle ve iki kardes kart,
+   en altta yasal satir (Colmo ve Palmo'da build.py aile() uretiyor). Burada
+   Decimo'nun kurallariyla: lacivert bant, yumusak yuzeyler, kat kontur yok.
+   Bardino logosunun yazisi currentColor; bant koyu oldugu icin beyaz. */
+footer { background: #221F5C; color: rgba(255, 255, 255, .72); padding: 46px 0 30px; font-size: 14.5px; }
 footer a { color: rgba(255, 255, 255, .88); text-decoration: none; }
 footer a:hover { color: var(--sari); }
-.f-baglantilar { display: flex; gap: 18px; flex-wrap: wrap; margin-left: auto; }
-.f-alt { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 13.5px; }
+.aile-ust { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 22px 36px; align-items: center; }
+@media (max-width: 760px) { .aile-ust { grid-template-columns: 1fr; } }
+.aile-marka { display: inline-block; color: #fff; border-radius: 12px; }
+.aile-marka:hover { color: #fff; }
+.aile-logo { width: min(230px, 62vw); height: auto; display: block; }
+.aile-kardes p { color: rgba(255, 255, 255, .84); font-size: 15.5px; margin-bottom: 12px; }
+.aile-kardes ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+.aile-kardes a {
+  display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px;
+  background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 16px; transition: background .16s ease, transform .16s ease;
+}
+.aile-kardes a:hover { background: rgba(255, 255, 255, .13); transform: translateY(-2px); }
+.aile-kardes img { width: 44px; height: 44px; border-radius: 11px; flex: none; }
+.aile-kardes b { display: block; color: #fff; font-size: 16px; font-weight: 800; line-height: 1.2; }
+.aile-kardes small { display: block; color: rgba(255, 255, 255, .7); font-size: 13.5px; font-weight: 700; line-height: 1.35; }
+.aile-alt {
+  display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between;
+  margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 13.5px;
+}
+.f-baglantilar { display: flex; gap: 18px; flex-wrap: wrap; }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+  .aile-kardes a:hover { transform: none; }
   html { scroll-behavior: auto; }
+}
+
+/* Koyu temada lacivert dugme ve altbilgi zeminde kayboluyordu; uygulamanin
+   bir ust yuzeyi (#503C82) ve izgara zemini (#1C1030) ayirt ediyor. Bu blok
+   dosyanin SONUNDA olmak zorunda: ayni ozgulluktaki .d-apple ve footer
+   kurallari yukarida, basa konunca onlar eziyordu. */
+@media (prefers-color-scheme: dark) {
+  .d-apple { background: #503C82; }
+  footer { background: #1C1030; }
 }
