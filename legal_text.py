@@ -33,7 +33,9 @@ bak; kaynagi degisen bir cumle yanlis olur:
                           silinmiyor, uid'leri "deleted" yapiliyor)
   silme adimlari          lib/screens/profile_screen.dart _buildHesapBolumu,
                           start_screen ust cubuktaki profil simgesi
-  abonelik kosullari      l10n subscriptionTerms (24 saat kurali Apple'in)
+  abonelik kosullari      l10n subscriptionTermsAppStore (24 saat kurali
+                          Apple'in) ve subscriptionTermsGooglePlay;
+                          strings.dart subscriptionTerms platforma gore secer
 
 Tarih degisirse UPDATED'i guncelle; build.py sayfaya ve sitemap'e yaziyor.
 
