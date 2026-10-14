@@ -17,8 +17,26 @@ kaciniyor: bir cumleyi degistirmek icin alti dosyaya dokunmak, bes tanesinin
 bayat kalmasi demek. Icerik `build.py` icinde sozluk, HTML yalnizca cikti.
 **Uretilen dosyalari elle duzenleme**, bir sonraki derlemede geri gider.
 
-Uretilen dosyalar: `index.html`, `tr|de|fr|es|pt/index.html`, `sitemap.xml`,
-`robots.txt`, `manifest.json`, `.nojekyll`.
+Uretilen dosyalar: `index.html`, `tr|de|fr|es|pt/index.html`, yasal sayfalar
+(`privacy-policy.html`, `terms-of-use.html`, `account-deletion.html` ve
+`tr/` altindaki Turkce kopyalari), `sitemap.xml`, `robots.txt`,
+`manifest.json`, `.nojekyll`.
+
+- **Yasal sayfalar yalnizca Ingilizce (kok) ve Turkce (`/tr/`)**, govdeleri
+  `legal_text.py`'de. Turkce metin "siz" diye hitap eder. Her cumlenin oyun
+  deposundaki kaynagi dosyanin basinda yazili; metnin ozu degisirse
+  `UPDATED` tarihi de degisir. Adresler eskisiyle ayni, cunku uygulama
+  (magaza ekrani, gizlilik ozeti), magaza kayitlari ve App Store EULA'si bu
+  adreslere bagli. Ingilizce yasal sayfa, Turkce tarayicidan ve site
+  disindan gelen ziyaretciyi `/tr/` kopyasina gonderir (eski tek sayfa
+  tarayici diliyle aciliyordu); `?lang=en` bunu durdurur.
+- **Yazi tipi kendi sunucumuzda**: `assets/fonts/nunito-*.woff2`, oyunun
+  kendi Nunito TTF'lerinden fontTools ile Latin + Latin Extended-A olarak
+  kesildi, lisans `assets/fonts/OFL.txt`. Sayfa baska bir sunucudan hicbir sey
+  yuklemiyor ve altbilgi bunu soyluyor; bir CDN eklenirse o cumle de degismeli.
+- **E-posta adresleri `<!--email_off-->` icinde**: Cloudflare'in Email
+  Address Obfuscation'i adresi JavaScript'siz 404 veren bir baglantiya
+  ceviriyordu. Adres uretecin icinde `mail_link()`'ten geciyor.
 
 - Acilis sayfasi alti dilde: **en (kok)**, tr, de, fr, es, pt. Yapi Colmo ve
   Palmo ile ayni (`palmo-site/build.py`): dizin bicimli adresler, hreflang ve
@@ -47,7 +65,6 @@ TikTok videosu onlara bagli.
 
 | Dosya | Neden elle |
 |---|---|
-| `privacy-policy.html`, `terms-of-use.html`, `account-deletion.html` | Govde tek basina dogrulanmis yasal metin, kendi sayfa ici dil dugmeleri var. Altbilgi her dilden bu tek dosyalara gidiyor. |
 | `indir.html` | Reklam trafigini cihaza gore magazaya yonlendiriyor. |
 | `tt.html` | TikTok kisa adresi, kokteki sayfaya utm ile gidiyor. |
 | `404.html` | Kopuk zincir sayfasi. |

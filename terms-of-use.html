@@ -1,88 +1,126 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Decimo Kullanım Koşulları.">
+    <script>
+    (function () {
+        try {
+            var q = location.search, h = location.hash;
+            if (/[?&]lang=en\b/i.test(q)) return;
+            var tr = /[?&]lang=tr\b/i.test(q) || /^#tr$/i.test(h);
+            if (!tr) {
+                var ref = document.referrer || "";
+                var ic = ref.indexOf(location.protocol + "//" + location.host + "/") === 0;
+                var dil = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+                tr = !ic && /^tr\b/i.test(dil);
+            }
+            if (tr) location.replace("/tr/" + location.pathname.replace(/^.*\//, ""));
+        } catch (e) {}
+    })();
+    </script>
+    <meta name="description" content="Terms for using Decimo, including in-app purchases, subscriptions and ads.">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#E85D52">
-    <title>Kullanım Koşulları - Decimo</title>
-    <link rel="icon" type="image/png" href="assets/decimo_icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/legal.css">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://decimo.bardino.app/terms-of-use.html">
+    <meta property="og:title" content="Terms of use - Decimo">
+    <meta property="og:description" content="Terms for using Decimo, including in-app purchases, subscriptions and ads.">
+    <meta property="og:image" content="https://decimo.bardino.app/assets/decimo_share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Decimo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Terms of use - Decimo">
+    <meta name="twitter:description" content="Terms for using Decimo, including in-app purchases, subscriptions and ads.">
+    <meta name="twitter:image" content="https://decimo.bardino.app/assets/decimo_share.png">
+    <meta name="theme-color" content="#2E2C7A">
+    <title>Terms of use - Decimo</title>
+    <link rel="canonical" href="https://decimo.bardino.app/terms-of-use.html">
+    <link rel="alternate" hreflang="en" href="https://decimo.bardino.app/terms-of-use.html">
+    <link rel="alternate" hreflang="tr" href="https://decimo.bardino.app/tr/terms-of-use.html">
+    <link rel="alternate" hreflang="x-default" href="https://decimo.bardino.app/terms-of-use.html">
+    <link rel="icon" type="image/png" href="/assets/decimo_icon.png">
+    <link rel="apple-touch-icon" href="/assets/decimo_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/legal.css">
 </head>
 <body>
-    <header class="ust">
-        <div class="kap">
-            <a class="marka" href="/">
-                <img src="assets/decimo_icon.png" alt="Decimo" width="40" height="40">
-                <b>Decimo</b>
-            </a>
-            <nav>
-                <a href="/">Ana Sayfa</a>
-                <a href="privacy-policy.html">Gizlilik</a>
-            </nav>
+<header class="ust">
+    <div class="kap">
+        <a class="marka" href="/">
+            <img src="/assets/decimo_icon.png" alt="Decimo" width="40" height="40">
+            <b>Decimo</b>
+        </a>
+        <div class="diller" role="navigation" aria-label="Language"><a href="/terms-of-use.html" hreflang="en" lang="en" aria-current="page"><span class="kod">EN</span><span class="ad">English</span></a><a href="/tr/terms-of-use.html" hreflang="tr" lang="tr"><span class="kod">TR</span><span class="ad">Türkçe</span></a></div>
+    </div>
+</header>
+
+<main class="legal-page">
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1>Terms of use</h1>
+            <p class="legal-updated">Last updated: 14 October 2026</p>
         </div>
-    </header>
+        <div class="legal-content">
+            <p class="legal-intro">By downloading or using Decimo ("the app") you agree to these terms. The app is provided by Bardino Technology.</p>
 
-    <main class="legal-page">
-        <div class="legal-container">
-            <div class="legal-header">
-                <span class="section-badge">&#128220; Yasal</span>
-                <h1>Kullanım Koşulları</h1>
-                <p class="legal-updated">Son Güncelleme: 17 Temmuz 2026</p>
-            </div>
-            <div class="legal-content">
-                <p class="legal-intro">Decimo'yu ("uygulama") indirerek veya kullanarak bu koşulları kabul edersiniz. Uygulama Bardino Technology tarafından sağlanır.</p>
+            <section class="legal-section">
+                <h2>1. License</h2>
+                <p>We grant you a limited, non-exclusive, non-transferable license to use the app for personal, non-commercial purposes. You may not reverse engineer, copy or misuse the app.</p>
+            </section>
 
-                <section class="legal-section">
-                    <h2>1. Lisans</h2>
-                    <p>Size, uygulamayı kişisel ve ticari olmayan amaçlarla kullanmanız için sınırlı, münhasır olmayan ve devredilemez bir lisans veriyoruz. Uygulamayı tersine mühendislik yapamaz, kopyalayamaz veya kötüye kullanamazsınız.</p>
-                </section>
+            <section class="legal-section">
+                <h2>2. In-app purchases</h2>
+                <p>Decimo is free to download and play. You can buy the following in the app:</p>
+                <ul>
+                    <li><strong>Coin packs:</strong> coins and gems to use in the game.</li>
+                    <li><strong>Special offers:</strong> a starter pack during your first seven days, and a refill of lives.</li>
+                    <li><strong>Remove Ads:</strong> a one-time purchase that turns off the full-screen ads between levels. Optional rewarded ads stay available.</li>
+                    <li><strong>VIP subscription:</strong> monthly or yearly, with the benefits listed in the shop.</li>
+                </ul>
+                <p>Payment is handled by Apple (App Store) or Google (Google Play) and is subject to their terms. The price is shown in the shop before you buy. We do not see or store your card details.</p>
+                <h3>Subscriptions</h3>
+                <p>A VIP subscription lasts one month or one year and renews automatically at the end of each period until you cancel it. On the App Store, cancel at least 24 hours before the period ends to avoid the next charge; Apple charges the renewal within the 24 hours before the period ends. You can manage or cancel the subscription in your App Store or Google Play account settings. Deleting the app or your Decimo account does not cancel it.</p>
+                <h3>Refunds and restoring</h3>
+                <p>Refund requests are handled by Apple or Google under their refund policies. Coins, gems, lives and power-ups have no cash value and cannot be exchanged for money. Remove Ads and an active subscription can be restored with <strong>Restore Purchases</strong> in the shop. If you delete your Decimo account, the coins, gems and progress in it are deleted too. Your statutory rights are not affected.</p>
+            </section>
 
-                <section class="legal-section">
-                    <h2>2. Uygulama İçi Satın Almalar</h2>
-                    <p>Uygulama, isteğe bağlı uygulama içi satın almalar (coin, gem paketleri ve VIP abonelik) içerir. Satın almalar Google Play Faturalandırma üzerinden işlenir ve Google Play koşullarına tabidir. Sanal öğelerin gerçek para değeri yoktur ve iade edilemez (yasal haklar saklıdır).</p>
-                </section>
+            <section class="legal-section">
+                <h2>3. Ads</h2>
+                <p>The app shows ads through Google AdMob: rewarded ads that you choose to watch, and full-screen ads between levels. Remove Ads or an active VIP subscription turns off the ads between levels. The <a href="/privacy-policy.html">Privacy policy</a> explains what data ads use.</p>
+            </section>
 
-                <section class="legal-section">
-                    <h2>3. Reklamlar</h2>
-                    <p>Ücretsiz sürüm, Google AdMob aracılığıyla reklam içerir. Reklam deneyimi <a href="privacy-policy.html">Gizlilik Politikası</a>'nda açıklandığı şekilde çalışır.</p>
-                </section>
+            <section class="legal-section">
+                <h2>4. Disclaimer</h2>
+                <p>The app is provided "as is". We do not guarantee that it will run without interruption or errors. To the extent permitted by applicable law, we are not liable for indirect damages arising from the use of the app.</p>
+            </section>
 
-                <section class="legal-section">
-                    <h2>4. Sorumluluk Reddi</h2>
-                    <p>Uygulama "olduğu gibi" sunulur. Kesintisiz veya hatasız çalışacağına dair garanti vermeyiz. Yürürlükteki yasaların izin verdiği ölçüde, uygulamanın kullanımından doğan dolaylı zararlardan sorumlu değiliz.</p>
-                </section>
-
-                <section class="legal-section">
-                    <h2>5. Değişiklikler ve İletişim</h2>
-                    <p>Bu koşulları güncelleyebiliriz. Sorularınız için: <a href="mailto:info@bardino.app">info@bardino.app</a></p>
-                </section>
-            </div>
+            <section class="legal-section">
+                <h2>5. Changes and contact</h2>
+                <p>We may update these terms. For questions: <!--email_off--><a href="mailto:info@bardino.app">info@bardino.app</a><!--/email_off--></p>
+            </section>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer class="aile">
-        <div class="kap aile-ust">
-            <a class="aile-marka" href="https://bardino.app/tr/"><svg class="aile-logo bardino-intro" viewBox="0 0 600 150" data-bardino-intro role="img" aria-label="Bardino"><g class="bi-mark"><g transform="translate(0 6) scale(1.12)"><rect x="4.5" y="9.5" width="91" height="87" rx="21" class="bi-ef bi-es" stroke-width="5"/><rect x="4.5" y="3" width="91" height="87" rx="21" fill="#FFC83D" class="bi-es" stroke-width="5"/><g fill="none" stroke="#1B2F4A" stroke-width="11.2" stroke-linecap="round"><path d="M37.1 22.1V68.9"/><circle cx="51.5" cy="54.5" r="14.4"/></g></g></g><g class="bi-word"><g transform="translate(134 8) scale(.62)" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19V136"/><circle cx="52" cy="100" r="36"/><circle cx="166" cy="100" r="36"/><path d="M202 64V136"/><path d="M252 64V136M252 100A36 36 0 0 1 297.32 65.23"/><circle cx="374" cy="100" r="36"/><path d="M410 19V136"/><path d="M460 64V136"/><path d="M510 64V136M510 100A36 36 0 0 1 582 100V136"/><circle cx="664" cy="100" r="36"/></g></g><g transform="translate(139 112) scale(.65)"><g class="bi-stone"><rect x="2" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="2" y="2" width="32" height="32" rx="9" fill="#2E2C7A" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="44" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="44" y="2" width="32" height="32" rx="9" fill="#FF5BA3" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="86" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="86" y="2" width="32" height="32" rx="9" fill="#ABD7B6" class="bi-es" stroke-width="3.5"/></g></g><g class="bi-dot" transform="translate(419.2 30.94)"><rect x="-9.92" y="-19.84" width="19.84" height="19.84" rx="5.58" fill="#FFC83D" class="bi-es" stroke-width="3.1"/></g></svg></a>
-            <div class="aile-kardes">
-                <p>Decimo'yu Bardino yapıyor, küçük ve bağımsız bir stüdyo. Sevdiysen iki kardeşiyle de tanış:</p>
-                <ul><li><a href="https://colmo.bardino.app/tr/"><img src="assets/aile/colmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Colmo</b><small>Kavanozları ağzına kadar doldur</small></span></a></li><li><a href="https://palmo.bardino.app/tr/"><img src="assets/aile/palmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Palmo</b><small>Bütün tahtayı doku</small></span></a></li></ul>
-            </div>
+<footer class="aile">
+    <div class="kap aile-ust">
+        <a class="aile-marka" href="https://bardino.app/"><svg class="aile-logo bardino-intro" viewBox="0 0 600 150" data-bardino-intro role="img" aria-label="Bardino"><g class="bi-mark"><g transform="translate(0 6) scale(1.12)"><rect x="4.5" y="9.5" width="91" height="87" rx="21" class="bi-ef bi-es" stroke-width="5"/><rect x="4.5" y="3" width="91" height="87" rx="21" fill="#FFC83D" class="bi-es" stroke-width="5"/><g fill="none" stroke="#1B2F4A" stroke-width="11.2" stroke-linecap="round"><path d="M37.1 22.1V68.9"/><circle cx="51.5" cy="54.5" r="14.4"/></g></g></g><g class="bi-word"><g transform="translate(134 8) scale(.62)" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19V136"/><circle cx="52" cy="100" r="36"/><circle cx="166" cy="100" r="36"/><path d="M202 64V136"/><path d="M252 64V136M252 100A36 36 0 0 1 297.32 65.23"/><circle cx="374" cy="100" r="36"/><path d="M410 19V136"/><path d="M460 64V136"/><path d="M510 64V136M510 100A36 36 0 0 1 582 100V136"/><circle cx="664" cy="100" r="36"/></g></g><g transform="translate(139 112) scale(.65)"><g class="bi-stone"><rect x="2" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="2" y="2" width="32" height="32" rx="9" fill="#2E2C7A" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="44" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="44" y="2" width="32" height="32" rx="9" fill="#FF5BA3" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="86" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="86" y="2" width="32" height="32" rx="9" fill="#ABD7B6" class="bi-es" stroke-width="3.5"/></g></g><g class="bi-dot" transform="translate(419.2 30.94)"><rect x="-9.92" y="-19.84" width="19.84" height="19.84" rx="5.58" fill="#FFC83D" class="bi-es" stroke-width="3.1"/></g></svg></a>
+        <div class="aile-kardes">
+            <p>More from Bardino:</p>
+            <ul><li><a href="https://colmo.bardino.app/"><img src="/assets/aile/colmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Colmo</b><small>Fill every jar to the brim</small></span></a></li><li><a href="https://palmo.bardino.app/"><img src="/assets/aile/palmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Palmo</b><small>Weave the whole board</small></span></a></li></ul>
         </div>
-        <div class="kap aile-alt">
-            <div class="f-baglantilar">
-                <a href="privacy-policy.html">Gizlilik</a>
-                <a href="terms-of-use.html">Kullanım koşulları</a>
-                <a href="account-deletion.html">Hesap silme</a>
-            </div>
-            <span>&copy; 2026 Bardino Technology</span>
-        </div>
-    </footer>
+    </div>
+    <div class="kap aile-alt">
+        <p class="f-satir"><a href="/privacy-policy.html">Privacy policy</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="/terms-of-use.html">Terms of use</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="/account-deletion.html">Account deletion</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> Support: <!--email_off--><a href="mailto:info@bardino.app">info@bardino.app</a><!--/email_off--></p>
+        <p class="f-satir"><a href="https://bardino.app/">A Bardino game</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> &copy; 2026 Bardino Technology</p>
+        <p class="f-satir f-not">This site sets no cookies and loads nothing from other servers.</p>
+        <p class="f-satir"><a href="https://www.instagram.com/decimogame/">Instagram</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="https://www.facebook.com/profile.php?id=61593083333364">Facebook</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="https://www.tiktok.com/@decimo_game">TikTok</a></p>
+    </div>
+</footer>
+
 <script src="/assets/bardino-intro.js" defer></script>
 </body>
 </html>

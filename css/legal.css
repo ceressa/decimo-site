@@ -4,8 +4,8 @@
  * gorecegi yer burasi olan insanlar var. Ana sayfayla ayni paleti kullaniyor;
  * degiskenler style.css'te tanimli, burada yeniden tanimlanmiyor.
  *
- * Sinif adlari sayfalarin HTML'inden geliyor ve degistirilmedi: hukuk metnine
- * dokunmamak, cevirileri riske atmamak icin yalnizca gorunum yeniden yazildi.
+ * Sayfalar Ekim 2026'dan beri build.py + legal_text.py ile uretiliyor;
+ * Ingilizce kokte, Turkce /tr/ altinda.
  */
 
 /* Ust bar ve altbilgi ana sayfayla AYNI isaretleme (.ust, footer.aile);
@@ -16,14 +16,9 @@
 .legal-container { width: min(820px, 92vw); margin: 0 auto; padding: 52px 0 76px; }
 
 .legal-header { text-align: center; margin-bottom: 38px; }
-.section-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--rozet-z); color: var(--rozet-y);
-  padding: 7px 15px; border-radius: 999px; font-weight: 800; font-size: 14px;
-}
 .legal-header h1 {
   font-size: clamp(30px, 4.4vw, 42px); font-weight: 900;
-  letter-spacing: -.03em; color: var(--baslik); margin-top: 14px; line-height: 1.15;
+  letter-spacing: -.03em; color: var(--baslik); line-height: 1.15;
 }
 .legal-updated { font-size: 14.5px; color: var(--soluk); font-weight: 700; margin-top: 8px; }
 
@@ -59,29 +54,14 @@
 .legal-contact p { margin-bottom: 4px; }
 
 .callout {
-  display: flex; gap: 14px; align-items: flex-start;
   background: linear-gradient(135deg, rgba(20, 200, 200, .12), rgba(255, 200, 61, .14));
   border: 1px solid var(--cizgi); border-radius: 14px;
   padding: 16px 19px; margin: 18px 0;
 }
-.callout .ico { font-size: 24px; line-height: 1.2; }
 .callout p { margin: 0; color: var(--soluk); }
 
-/* ── Dil secici ──────────────────────────────────────────────────────── */
-.lang-toggle { display: flex; gap: 8px; justify-content: center; margin-bottom: 28px; }
-.lang-toggle button {
-  font-family: inherit; font-weight: 800; font-size: 14.5px; cursor: pointer;
-  padding: 8px 20px; border-radius: 999px;
-  border: 1.5px solid var(--cizgi); background: var(--beyaz); color: var(--soluk);
-  transition: background .18s ease, color .18s ease, border-color .18s ease;
-}
-.lang-toggle button:hover { color: var(--pembe); }
-.lang-toggle button.active {
-  background: var(--pembe); color: var(--dolgu-y); border-color: transparent;
-  box-shadow: 0 4px 12px rgba(255, 91, 163, .34);
-}
-.lang-block { display: none; }
-.lang-block.active { display: block; }
+/* Dil secici yok: her dilin kendi sayfasi var (/ ve /tr/), gecis ust
+   bardaki .diller ile, ana sayfadaki gibi. */
 
 /* ── Silme adimlari ──────────────────────────────────────────────────── */
 .steps-deletion { counter-reset: dstep; margin: 16px 0; }

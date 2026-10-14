@@ -1,200 +1,145 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Decimo Hesap Silme - hesabınızı ve verilerinizi kalıcı olarak nasıl silersiniz.">
+    <script>
+    (function () {
+        try {
+            var q = location.search, h = location.hash;
+            if (/[?&]lang=en\b/i.test(q)) return;
+            var tr = /[?&]lang=tr\b/i.test(q) || /^#tr$/i.test(h);
+            if (!tr) {
+                var ref = document.referrer || "";
+                var ic = ref.indexOf(location.protocol + "//" + location.host + "/") === 0;
+                var dil = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+                tr = !ic && /^tr\b/i.test(dil);
+            }
+            if (tr) location.replace("/tr/" + location.pathname.replace(/^.*\//, ""));
+        } catch (e) {}
+    })();
+    </script>
+    <meta name="description" content="How to delete your Decimo account and its data, in the app or by e-mail.">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://decimo.bardino.app/account-deletion.html">
-    <meta property="og:title" content="Hesap Silme - Decimo">
-    <meta name="theme-color" content="#E85D52">
-    <title>Hesap Silme - Decimo</title>
-    <link rel="icon" type="image/png" href="assets/decimo_icon.png">
-    <link rel="apple-touch-icon" href="assets/decimo_icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/legal.css">
+    <meta property="og:title" content="Account deletion - Decimo">
+    <meta property="og:description" content="How to delete your Decimo account and its data, in the app or by e-mail.">
+    <meta property="og:image" content="https://decimo.bardino.app/assets/decimo_share.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Decimo">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Account deletion - Decimo">
+    <meta name="twitter:description" content="How to delete your Decimo account and its data, in the app or by e-mail.">
+    <meta name="twitter:image" content="https://decimo.bardino.app/assets/decimo_share.png">
+    <meta name="theme-color" content="#2E2C7A">
+    <title>Account deletion - Decimo</title>
+    <link rel="canonical" href="https://decimo.bardino.app/account-deletion.html">
+    <link rel="alternate" hreflang="en" href="https://decimo.bardino.app/account-deletion.html">
+    <link rel="alternate" hreflang="tr" href="https://decimo.bardino.app/tr/account-deletion.html">
+    <link rel="alternate" hreflang="x-default" href="https://decimo.bardino.app/account-deletion.html">
+    <link rel="icon" type="image/png" href="/assets/decimo_icon.png">
+    <link rel="apple-touch-icon" href="/assets/decimo_icon.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/legal.css">
 </head>
 <body>
-    <header class="ust">
-        <div class="kap">
-            <a class="marka" href="/">
-                <img src="assets/decimo_icon.png" alt="Decimo" width="40" height="40">
-                <b>Decimo</b>
-            </a>
-            <nav>
-                <a href="/">Ana Sayfa</a>
-                <a href="privacy-policy.html">Gizlilik</a>
-            </nav>
+<header class="ust">
+    <div class="kap">
+        <a class="marka" href="/">
+            <img src="/assets/decimo_icon.png" alt="Decimo" width="40" height="40">
+            <b>Decimo</b>
+        </a>
+        <div class="diller" role="navigation" aria-label="Language"><a href="/account-deletion.html" hreflang="en" lang="en" aria-current="page"><span class="kod">EN</span><span class="ad">English</span></a><a href="/tr/account-deletion.html" hreflang="tr" lang="tr"><span class="kod">TR</span><span class="ad">Türkçe</span></a></div>
+    </div>
+</header>
+
+<main class="legal-page">
+    <div class="legal-container">
+        <div class="legal-header">
+            <h1>Account deletion</h1>
+            <p class="legal-updated">Last updated: 14 October 2026</p>
         </div>
-    </header>
+        <div class="legal-content">
+            <p class="legal-intro">This page explains how to permanently delete your <strong>Decimo</strong> (com.bardino.numberchain) account and its data. Deletion cannot be undone.</p>
+            <p>Every player has an account, even without signing in: the app creates an anonymous account on first launch and saves your progress to our servers under it.</p>
 
-    <main class="legal-page">
-        <div class="legal-container">
-            <div class="legal-header">
-                <span class="section-badge">&#128465;&#65039; Hesap</span>
-                <h1>Hesap ve Veri Silme</h1>
-                <p class="legal-updated">Son Güncelleme / Last updated: 17 Temmuz 2026</p>
-            </div>
-
-            <div class="lang-toggle">
-                <button data-lang="tr" class="active">Türkçe</button>
-                <button data-lang="en">English</button>
-            </div>
-
-            <div class="legal-content">
-                <!-- TR -->
-                <div class="lang-block active" data-lang="tr">
-                    <p class="legal-intro">Bu sayfa, <strong>Decimo</strong> (com.bardino.numberchain) hesabınızı ve ilişkili verilerinizi kalıcı olarak nasıl silebileceğinizi açıklar. Hesap silme işlemi geri alınamaz.</p>
-
-                    <section class="legal-section">
-                        <h2>1. Uygulama İçinden Silme (Önerilen)</h2>
-                        <p>Hesabınızı en hızlı şekilde doğrudan uygulama içinden silebilirsiniz. İşlem anında gerçekleşir:</p>
-                        <div class="steps-deletion">
-                            <div class="step-del">Decimo uygulamasını açın ve Google ile giriş yapın.</div>
-                            <div class="step-del">Ana menüden <strong>Profil</strong> ekranına gidin.</div>
-                            <div class="step-del"><strong>"Hesabı Sil"</strong> butonuna dokunun.</div>
-                            <div class="step-del">Onay penceresinde işlemi doğrulayın.</div>
-                        </div>
-                        <p>Hesabınız, bulut ilerlemeniz ve hesap kaydınız anında ve kalıcı olarak silinir; oturumunuz kapatılır.</p>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>2. E-posta ile Silme Talebi</h2>
-                        <p>Uygulamaya erişiminiz yoksa, silme talebinizi e-posta ile de iletebilirsiniz:</p>
-                        <ul>
-                            <li>Uygulamaya giriş yaptığınız Google hesabınızın e-posta adresinden yazın.</li>
-                            <li>Konu satırına <strong>"Decimo Hesap Silme Talebi"</strong> yazın.</li>
-                            <li>E-postayı <a href="mailto:info@bardino.app?subject=Decimo%20Hesap%20Silme%20Talebi">info@bardino.app</a> adresine gönderin.</li>
-                        </ul>
-                        <p>E-posta ile yapılan talepler en geç <strong>7 iş günü</strong> içinde işleme alınır.</p>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>3. Silinen Veriler</h2>
-                        <p>Hesabınız silindiğinde aşağıdaki veriler kalıcı olarak kaldırılır:</p>
-                        <ul>
-                            <li><strong>Hesap bilgileri:</strong> e-posta, görünen ad ve Google hesap kimliği (Firebase Authentication kaydı).</li>
-                            <li><strong>Bulut ilerlemesi:</strong> tamamlanan seviyeler, yıldızlar, coinler, gemler ve ayarlar (Firebase Firestore).</li>
-                            <li><strong>İstatistikler:</strong> oyun içi ilerleme ve seri (streak) verileri.</li>
-                        </ul>
-                        <div class="callout">
-                            <span class="ico">&#128161;</span>
-                            <p>Cihazınızda yerel olarak saklanan veriler, uygulamayı kaldırdığınızda veya <em>Ayarlar &gt; Uygulamalar &gt; Decimo &gt; Depolama &gt; Verileri temizle</em> ile silinir.</p>
-                        </div>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>4. Saklanan Veriler</h2>
-                        <p>Silme sonrasında bazı veriler yasal yükümlülükler kapsamında sınırlı süre saklanabilir:</p>
-                        <ul>
-                            <li><strong>Ödeme kayıtları:</strong> vergi ve muhasebe yükümlülükleri gereği satın alma işlem kayıtları (Google Play tarafında) ilgili yasal süre boyunca saklanır.</li>
-                            <li><strong>Anonim hata raporları:</strong> uygulamayı geliştirmek için saklanabilir; kişisel bilgi içermez.</li>
-                        </ul>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>5. İletişim</h2>
-                        <div class="legal-contact">
-                            <p><strong>Bardino Technology</strong></p>
-                            <p>E-posta: <a href="mailto:info@bardino.app">info@bardino.app</a></p>
-                            <p>Web: <a href="https://decimo.bardino.app">decimo.bardino.app</a></p>
-                        </div>
-                    </section>
+            <section class="legal-section">
+                <h2>1. Delete in the app (recommended)</h2>
+                <p>Deletion takes effect immediately:</p>
+                <div class="steps-deletion">
+                    <div class="step-del">Open Decimo and tap the profile icon at the top of the main screen.</div>
+                    <div class="step-del">In the <strong>Account</strong> section, tap <strong>Delete Account</strong>.</div>
+                    <div class="step-del">Confirm in the dialog.</div>
                 </div>
+                <p>Your account and its data are deleted and you are signed out. If you signed in with Google or Apple, you may be asked to sign in again to confirm that it is you.</p>
+            </section>
 
-                <!-- EN -->
-                <div class="lang-block" data-lang="en">
-                    <p class="legal-intro">This page explains how to permanently delete your <strong>Decimo</strong> (com.bardino.numberchain) account and associated data. Account deletion is irreversible.</p>
+            <section class="legal-section">
+                <h2>2. Request deletion by e-mail</h2>
+                <p>If you cannot open the app, you can send a deletion request by e-mail:</p>
+                <ul>
+                    <li>If you signed in with Google or Apple, write from that e-mail address or include it in the message.</li>
+                    <li>If you never signed in, include your in-game nickname so that we can find the account.</li>
+                    <li>Use the subject line <strong>"Decimo Account Deletion Request"</strong> and send it to <!--email_off--><a href="mailto:info@bardino.app?subject=Decimo%20Account%20Deletion%20Request">info@bardino.app</a><!--/email_off-->.</li>
+                </ul>
+                <p>E-mail requests are processed within <strong>7 business days</strong>.</p>
+            </section>
 
-                    <section class="legal-section">
-                        <h2>1. Delete From Inside the App (Recommended)</h2>
-                        <p>The fastest way is directly inside the app. It happens instantly:</p>
-                        <div class="steps-deletion">
-                            <div class="step-del">Open Decimo and sign in with Google.</div>
-                            <div class="step-del">Go to the <strong>Profile</strong> screen from the main menu.</div>
-                            <div class="step-del">Tap <strong>"Delete Account"</strong>.</div>
-                            <div class="step-del">Confirm in the dialog.</div>
-                        </div>
-                        <p>Your account, cloud progress and account record are permanently removed and you are signed out.</p>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>2. Request Deletion by E-mail</h2>
-                        <p>If you cannot access the app, you can request deletion by e-mail:</p>
-                        <ul>
-                            <li>Write from the Google account e-mail you used to sign in.</li>
-                            <li>Use the subject line <strong>"Decimo Account Deletion Request"</strong>.</li>
-                            <li>Send it to <a href="mailto:info@bardino.app?subject=Decimo%20Account%20Deletion%20Request">info@bardino.app</a>.</li>
-                        </ul>
-                        <p>E-mail requests are processed within <strong>7 business days</strong>.</p>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>3. Data That Is Deleted</h2>
-                        <ul>
-                            <li><strong>Account info:</strong> e-mail, display name and Google account identifier (Firebase Authentication record).</li>
-                            <li><strong>Cloud progress:</strong> completed levels, stars, coins, gems and settings (Firebase Firestore).</li>
-                            <li><strong>Statistics:</strong> in-game progress and streak data.</li>
-                        </ul>
-                        <div class="callout">
-                            <span class="ico">&#128161;</span>
-                            <p>Data stored locally on your device is removed when you uninstall the app or use <em>Settings &gt; Apps &gt; Decimo &gt; Storage &gt; Clear data</em>.</p>
-                        </div>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>4. Data That May Be Retained</h2>
-                        <ul>
-                            <li><strong>Payment records:</strong> purchase transaction records (on Google Play's side) are kept for the legally required period for tax/accounting.</li>
-                            <li><strong>Anonymous crash reports:</strong> may be kept to improve the app; contain no personal information.</li>
-                        </ul>
-                    </section>
-
-                    <section class="legal-section">
-                        <h2>5. Contact</h2>
-                        <div class="legal-contact">
-                            <p><strong>Bardino Technology</strong></p>
-                            <p>E-mail: <a href="mailto:info@bardino.app">info@bardino.app</a></p>
-                            <p>Web: <a href="https://decimo.bardino.app">decimo.bardino.app</a></p>
-                        </div>
-                    </section>
+            <section class="legal-section">
+                <h2>3. Data that is deleted</h2>
+                <ul>
+                    <li><strong>Account record:</strong> the account identifier and, if you signed in, your e-mail address and name (Firebase Authentication).</li>
+                    <li><strong>Cloud save:</strong> levels, stars, coins, gems, settings, statistics, purchase history and device information (Firebase Firestore).</li>
+                    <li><strong>Scores:</strong> your leaderboard entries, including past daily and tournament entries.</li>
+                    <li><strong>Other:</strong> push notification tokens and your newsletter address.</li>
+                    <li><strong>On your device:</strong> the game's progress, your nickname and the saved name and e-mail address.</li>
+                </ul>
+                <div class="callout">
+                    <p>Uninstalling the app removes the data on your device, but not your account on our servers. Use Delete Account for that.</p>
                 </div>
-            </div>
-        </div>
-    </main>
+            </section>
 
-    <footer class="aile">
-        <div class="kap aile-ust">
-            <a class="aile-marka" href="https://bardino.app/tr/"><svg class="aile-logo bardino-intro" viewBox="0 0 600 150" data-bardino-intro role="img" aria-label="Bardino"><g class="bi-mark"><g transform="translate(0 6) scale(1.12)"><rect x="4.5" y="9.5" width="91" height="87" rx="21" class="bi-ef bi-es" stroke-width="5"/><rect x="4.5" y="3" width="91" height="87" rx="21" fill="#FFC83D" class="bi-es" stroke-width="5"/><g fill="none" stroke="#1B2F4A" stroke-width="11.2" stroke-linecap="round"><path d="M37.1 22.1V68.9"/><circle cx="51.5" cy="54.5" r="14.4"/></g></g></g><g class="bi-word"><g transform="translate(134 8) scale(.62)" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19V136"/><circle cx="52" cy="100" r="36"/><circle cx="166" cy="100" r="36"/><path d="M202 64V136"/><path d="M252 64V136M252 100A36 36 0 0 1 297.32 65.23"/><circle cx="374" cy="100" r="36"/><path d="M410 19V136"/><path d="M460 64V136"/><path d="M510 64V136M510 100A36 36 0 0 1 582 100V136"/><circle cx="664" cy="100" r="36"/></g></g><g transform="translate(139 112) scale(.65)"><g class="bi-stone"><rect x="2" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="2" y="2" width="32" height="32" rx="9" fill="#2E2C7A" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="44" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="44" y="2" width="32" height="32" rx="9" fill="#FF5BA3" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="86" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="86" y="2" width="32" height="32" rx="9" fill="#ABD7B6" class="bi-es" stroke-width="3.5"/></g></g><g class="bi-dot" transform="translate(419.2 30.94)"><rect x="-9.92" y="-19.84" width="19.84" height="19.84" rx="5.58" fill="#FFC83D" class="bi-es" stroke-width="3.1"/></g></svg></a>
-            <div class="aile-kardes">
-                <p>Decimo'yu Bardino yapıyor, küçük ve bağımsız bir stüdyo. Sevdiysen iki kardeşiyle de tanış:</p>
-                <ul><li><a href="https://colmo.bardino.app/tr/"><img src="assets/aile/colmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Colmo</b><small>Kavanozları ağzına kadar doldur</small></span></a></li><li><a href="https://palmo.bardino.app/tr/"><img src="assets/aile/palmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Palmo</b><small>Bütün tahtayı doku</small></span></a></li></ul>
-            </div>
-        </div>
-        <div class="kap aile-alt">
-            <div class="f-baglantilar">
-                <a href="privacy-policy.html">Gizlilik</a>
-                <a href="terms-of-use.html">Kullanım koşulları</a>
-                <a href="account-deletion.html">Hesap silme</a>
-            </div>
-            <span>&copy; 2026 Bardino Technology</span>
-        </div>
-    </footer>
+            <section class="legal-section">
+                <h2>4. Data that may be kept</h2>
+                <ul>
+                    <li><strong>Purchase records:</strong> kept without your account identifier, because they stop the same purchase from being redeemed twice. Apple and Google keep their own payment records.</li>
+                    <li><strong>Crash reports and usage statistics:</strong> those already sent to Firebase Crashlytics and Analytics stay there for those services' retention periods. They do not contain your name or e-mail address.</li>
+                    <li><strong>Achievements and scores</strong> sent to Google Play Games or Game Center belong to your profile in that service and are managed there.</li>
+                </ul>
+            </section>
 
-    <script>
-        document.querySelectorAll('.lang-toggle button').forEach(function(btn){
-            btn.addEventListener('click', function(){
-                var lang = btn.getAttribute('data-lang');
-                document.querySelectorAll('.lang-toggle button').forEach(function(b){ b.classList.toggle('active', b===btn); });
-                document.querySelectorAll('.lang-block').forEach(function(bl){ bl.classList.toggle('active', bl.getAttribute('data-lang')===lang); });
-                document.documentElement.lang = lang;
-            });
-        });
-    </script>
+            <section class="legal-section">
+                <h2>5. Contact</h2>
+                <div class="legal-contact">
+                    <p><strong>Bardino Technology</strong></p>
+                    <p>E-mail: <!--email_off--><a href="mailto:info@bardino.app">info@bardino.app</a><!--/email_off--></p>
+                    <p>Web: <a href="https://decimo.bardino.app/">decimo.bardino.app</a></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+<footer class="aile">
+    <div class="kap aile-ust">
+        <a class="aile-marka" href="https://bardino.app/"><svg class="aile-logo bardino-intro" viewBox="0 0 600 150" data-bardino-intro role="img" aria-label="Bardino"><g class="bi-mark"><g transform="translate(0 6) scale(1.12)"><rect x="4.5" y="9.5" width="91" height="87" rx="21" class="bi-ef bi-es" stroke-width="5"/><rect x="4.5" y="3" width="91" height="87" rx="21" fill="#FFC83D" class="bi-es" stroke-width="5"/><g fill="none" stroke="#1B2F4A" stroke-width="11.2" stroke-linecap="round"><path d="M37.1 22.1V68.9"/><circle cx="51.5" cy="54.5" r="14.4"/></g></g></g><g class="bi-word"><g transform="translate(134 8) scale(.62)" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"><path d="M16 19V136"/><circle cx="52" cy="100" r="36"/><circle cx="166" cy="100" r="36"/><path d="M202 64V136"/><path d="M252 64V136M252 100A36 36 0 0 1 297.32 65.23"/><circle cx="374" cy="100" r="36"/><path d="M410 19V136"/><path d="M460 64V136"/><path d="M510 64V136M510 100A36 36 0 0 1 582 100V136"/><circle cx="664" cy="100" r="36"/></g></g><g transform="translate(139 112) scale(.65)"><g class="bi-stone"><rect x="2" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="2" y="2" width="32" height="32" rx="9" fill="#2E2C7A" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="44" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="44" y="2" width="32" height="32" rx="9" fill="#FF5BA3" class="bi-es" stroke-width="3.5"/></g><g class="bi-stone"><rect x="86" y="6" width="32" height="32" rx="9" class="bi-ef bi-es" stroke-width="3.5"/><rect x="86" y="2" width="32" height="32" rx="9" fill="#ABD7B6" class="bi-es" stroke-width="3.5"/></g></g><g class="bi-dot" transform="translate(419.2 30.94)"><rect x="-9.92" y="-19.84" width="19.84" height="19.84" rx="5.58" fill="#FFC83D" class="bi-es" stroke-width="3.1"/></g></svg></a>
+        <div class="aile-kardes">
+            <p>More from Bardino:</p>
+            <ul><li><a href="https://colmo.bardino.app/"><img src="/assets/aile/colmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Colmo</b><small>Fill every jar to the brim</small></span></a></li><li><a href="https://palmo.bardino.app/"><img src="/assets/aile/palmo.webp" alt="" width="44" height="44" loading="lazy"><span><b>Palmo</b><small>Weave the whole board</small></span></a></li></ul>
+        </div>
+    </div>
+    <div class="kap aile-alt">
+        <p class="f-satir"><a href="/privacy-policy.html">Privacy policy</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="/terms-of-use.html">Terms of use</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="/account-deletion.html">Account deletion</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> Support: <!--email_off--><a href="mailto:info@bardino.app">info@bardino.app</a><!--/email_off--></p>
+        <p class="f-satir"><a href="https://bardino.app/">A Bardino game</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> &copy; 2026 Bardino Technology</p>
+        <p class="f-satir f-not">This site sets no cookies and loads nothing from other servers.</p>
+        <p class="f-satir"><a href="https://www.instagram.com/decimogame/">Instagram</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="https://www.facebook.com/profile.php?id=61593083333364">Facebook</a> <span class="f-ayrac" aria-hidden="true">&middot;</span> <a href="https://www.tiktok.com/@decimo_game">TikTok</a></p>
+    </div>
+</footer>
+
 <script src="/assets/bardino-intro.js" defer></script>
 </body>
 </html>

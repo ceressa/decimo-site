@@ -10,6 +10,16 @@
  * icin alt bant ve altbilgide kullaniliyor.
  */
 
+/* Nunito sitenin kendi dosyalarindan (assets/fonts, lisans OFL.txt). Google
+   Fonts'tan yuklendiginde her ziyaretcinin IP'si Google'a gidiyordu. Dosyalar
+   oyunun kendi TTF'lerinden (Decimo deposu assets/fonts) Latin + Latin
+   Extended-A olarak kesildi; yalnizca CSS'in kullandigi bes kalinlik var. */
+@font-face { font-family: Nunito; font-style: normal; font-weight: 400; font-display: swap; src: url("/assets/fonts/nunito-400.woff2") format("woff2"); }
+@font-face { font-family: Nunito; font-style: normal; font-weight: 600; font-display: swap; src: url("/assets/fonts/nunito-600.woff2") format("woff2"); }
+@font-face { font-family: Nunito; font-style: normal; font-weight: 700; font-display: swap; src: url("/assets/fonts/nunito-700.woff2") format("woff2"); }
+@font-face { font-family: Nunito; font-style: normal; font-weight: 800; font-display: swap; src: url("/assets/fonts/nunito-800.woff2") format("woff2"); }
+@font-face { font-family: Nunito; font-style: normal; font-weight: 900; font-display: swap; src: url("/assets/fonts/nunito-900.woff2") format("woff2"); }
+
 :root {
   --krem:    #FDF6F0;
   --beyaz:   #FFFFFF;
@@ -164,12 +174,6 @@ a { color: var(--pembe); }
 /* ── Kahraman ────────────────────────────────────────────────────────── */
 .kahraman { padding: 72px 0 84px; overflow: hidden; }
 .kahraman .kap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
-.rozet {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--rozet-z); color: var(--rozet-y);
-  padding: 7px 15px; border-radius: 999px;
-  font-weight: 800; font-size: 14px; margin-bottom: 22px;
-}
 .kahraman h1 {
   font-size: clamp(38px, 5.4vw, 60px); font-weight: 900;
   line-height: 1.08; letter-spacing: -.03em; color: var(--baslik);
@@ -192,7 +196,7 @@ a { color: var(--pembe); }
 }
 @media (max-width: 880px) {
   .kahraman .kap { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .dugmeler, .rozet { justify-content: center; }
+  .dugmeler { justify-content: center; }
   .kahraman .alt { margin-inline: auto; }
 }
 
@@ -204,6 +208,9 @@ h2 {
   letter-spacing: -.02em; color: var(--baslik); text-align: center;
 }
 .bolum-alt { text-align: center; color: var(--soluk); margin: 12px auto 44px; max-width: 40em; }
+/* Alt metni olmayan bolum: baslikla icerik arasindaki boslugu .bolum-alt
+   veriyordu. */
+.kap > h2 + .adimlar, .kap > h2 + .vitrin { margin-top: 40px; }
 
 /* ── Nasil oynanir ───────────────────────────────────────────────────── */
 .adimlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -291,11 +298,16 @@ footer a:hover { color: var(--sari); }
 .aile-kardes img { width: 44px; height: 44px; border-radius: 11px; flex: none; }
 .aile-kardes b { display: block; color: #fff; font-size: 16px; font-weight: 800; line-height: 1.2; }
 .aile-kardes small { display: block; color: rgba(255, 255, 255, .7); font-size: 13.5px; font-weight: 700; line-height: 1.35; }
+/* Alt satirlar uc oyun sitesinde ayni sirada: yasal sayfalar ve destek
+   adresi, sonra "Bir Bardino oyunu" ve telif, sonra cerez notu. Sosyal
+   hesaplar yalnizca Decimo'da var; ortak satirlari bozmasin diye en sonda. */
 .aile-alt {
-  display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between;
   margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 13.5px;
 }
-.f-baglantilar { display: flex; gap: 18px; flex-wrap: wrap; }
+.f-satir { margin: 0 0 8px; }
+.f-satir:last-child { margin-bottom: 0; }
+.f-ayrac { margin: 0 .2em; color: rgba(255, 255, 255, .45); }
+.f-not { color: rgba(255, 255, 255, .6); }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
