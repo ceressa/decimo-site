@@ -213,7 +213,7 @@ EN_DELETION = """            <p class="legal-intro">This page explains how to pe
                     <li>If you never signed in, include your in-game nickname so that we can find the account.</li>
                     <li>Use the subject line <strong>"Decimo Account Deletion Request"</strong> and send it to {mail_del}.</li>
                 </ul>
-                <p>E-mail requests are processed within <strong>7 business days</strong>.</p>
+                <p>E-mail requests are processed within <strong>30 days</strong>.</p>
             </section>
 
             <section class="legal-section">
@@ -401,7 +401,7 @@ TR_DELETION = """            <p class="legal-intro">Bu sayfa, <strong>Decimo</st
                     <li>Hiç giriş yapmadıysanız, hesabı bulabilmemiz için oyun içi takma adınızı yazın.</li>
                     <li>Konu satırına <strong>"Decimo Hesap Silme Talebi"</strong> yazıp {mail_del} adresine gönderin.</li>
                 </ul>
-                <p>E-postayla gelen talepler en geç <strong>7 iş günü</strong> içinde işleme alınır.</p>
+                <p>E-postayla gelen talepler en geç <strong>30 gün</strong> içinde işleme alınır.</p>
             </section>
 
             <section class="legal-section">
