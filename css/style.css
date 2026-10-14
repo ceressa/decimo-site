@@ -103,6 +103,48 @@ a { color: var(--pembe); }
 .ust nav a:hover { color: var(--pembe); }
 @media (max-width: 720px) { .ust nav { display: none; } }
 
+/* ── Dil secici ──────────────────────────────────────────────────────── */
+/* Colmo ve Palmo'daki .diller ile ayni yapi, bayrak yok. Gorunum Decimo'nun:
+   hap bicimi, yumusak golge, kat kontur yok. Secili dil beyaz yuzeyde ve
+   marka ikonuyla ayni golgede duruyor.
+
+   Alti dilin tam adi ~500 piksel istiyor; 375 piksellik telefonda markadan
+   sonra ~205 piksel kaliyor. O yuzden 1180 altinda iki harfli koda donuyor
+   ve 900 altinda capa menusu (.cipa) kalkiyor, ikisi birden sigmiyordu.
+   Tam ad yalnizca gozden gizleniyor: ekran okuyucu yine "Deutsch" okuyor.
+   Yine de sigmazsa (320 piksel) satir kiriliyor, yatay tasma olmuyor. */
+.diller {
+  margin-left: auto; min-width: 0;
+  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px;
+}
+.ust .cipa + .diller { margin-left: 4px; padding-left: 14px; border-left: 1px solid var(--cizgi); }
+.diller a {
+  display: inline-block; padding: 5px 11px; border-radius: 999px;
+  color: var(--soluk); text-decoration: none;
+  font-weight: 800; font-size: 13.5px; line-height: 1.3;
+  transition: color .16s ease, background .16s ease;
+}
+.diller a:hover { color: var(--pembe); }
+.diller a[aria-current="page"] { color: var(--baslik); background: var(--beyaz); box-shadow: var(--golge-s); }
+.diller .kod { display: none; }
+@media (max-width: 1180px) {
+  .diller a { padding: 5px 8px; }
+  .diller .kod { display: inline; }
+  .diller .ad {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+}
+@media (max-width: 900px) {
+  .ust .cipa { display: none; }
+  .ust .cipa + .diller { margin-left: auto; padding-left: 0; border-left: 0; }
+}
+@media (max-width: 420px) {
+  .ust .kap { gap: 10px; }
+  .diller { gap: 2px; }
+  .diller a { padding: 5px 6px; font-size: 13px; }
+}
+
 /* ── Butonlar ────────────────────────────────────────────────────────── */
 .dugmeler { display: flex; gap: 12px; flex-wrap: wrap; }
 .dugme {
