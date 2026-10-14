@@ -272,7 +272,7 @@ T["de"] = {
     "h1b": "bau die Kette.",
     "lead": "Zieh über benachbarte Zahlen in aufsteigender Reihenfolge und "
             "mach die Kette so lang, wie du kannst.",
-    "small": "Kostenlos. Auch offline spielbar.",
+    "small": "Kostenlos. Offline spielbar.",
     "heroAlt": "Decimo im Spiel: Auf dem Zahlengitter entsteht eine Kette",
     "howT": "So wird gespielt",
     "howS": "",
@@ -490,7 +490,7 @@ T["pt"] = {
     "h1b": "monte a corrente.",
     "lead": "Conecte números vizinhos em ordem crescente e deixe a corrente "
             "o mais longa que você conseguir.",
-    "small": "Grátis. Joga-se offline.",
+    "small": "Grátis. Funciona offline.",
     "heroAlt": "Decimo em jogo: uma corrente sendo montada na grade de "
                "números",
     "howT": "Como jogar",
@@ -787,9 +787,9 @@ KARDES_TAG = {
               "fr": "Remplis les bocaux à ras bord",
               "es": "Llena los tarros hasta el borde",
               "pt": "Encha os potes até a borda"},
-    "palmo": {"en": "Weave the whole board", "tr": "Bütün tahtayı doku",
-              "de": "Webe das ganze Brett", "fr": "Tisse tout le plateau",
-              "es": "Teje todo el tablero", "pt": "Teça o tabuleiro inteiro"},
+    "palmo": {"en": "Number Weave", "tr": "Sayı Dokuma",
+              "de": "Zahlen-Gewebe", "fr": "Nombres tissés",
+              "es": "Tejido numérico", "pt": "Trama numérica"},
 }
 KARDES_AD = {"colmo": "Colmo", "palmo": "Palmo"}
 
