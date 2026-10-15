@@ -63,7 +63,7 @@ okumadi.
 UPDATED = {
     "privacy-policy.html": "2026-10-15",
     "terms-of-use.html": "2026-10-14",
-    "account-deletion.html": "2026-10-14",
+    "account-deletion.html": "2026-10-15",
 }
 
 FIREBASE = "https://firebase.google.com/support/privacy"
@@ -269,6 +269,7 @@ EN_DELETION = """            <p class="legal-intro">This page explains how to pe
                     <li><strong>Purchase records:</strong> kept without your account identifier, because they stop the same purchase from being redeemed twice. Apple and Google keep their own payment records.</li>
                     <li><strong>Crash reports and usage statistics:</strong> those already sent to Firebase Crashlytics and Analytics stay there for those services' retention periods. They do not contain your name or e-mail address.</li>
                     <li><strong>Achievements and scores</strong> sent to Google Play Games or Game Center belong to your profile in that service and are managed there.</li>
+                    <li><strong>Bardino membership</strong>, in versions of Decimo that offer it and if you joined: deleting your account does not end it. It is ended separately with <strong>Leave Bardino membership</strong> in Settings, as described in its <a href="https://bardino.app/uyelik/aydinlatma#en">privacy notice</a>. Leave Bardino first if you want both gone.</li>
                 </ul>
             </section>
 
@@ -473,6 +474,7 @@ TR_DELETION = """            <p class="legal-intro">Bu sayfa, <strong>Decimo</st
                     <li><strong>Satın alma kayıtları:</strong> hesap kimliğiniz çıkarılarak saklanır; aynı satın almanın ikinci kez kullanılmasını engellerler. Apple ve Google kendi ödeme kayıtlarını ayrıca saklar.</li>
                     <li><strong>Çökme raporları ve kullanım istatistikleri:</strong> Firebase Crashlytics ve Analytics'e daha önce gönderilmiş olanlar, bu hizmetlerin saklama süreleri boyunca orada kalır. Adınızı veya e-posta adresinizi içermezler.</li>
                     <li><strong>Başarımlar ve skorlar:</strong> Google Play Games'e veya Game Center'a gönderilenler o hizmetteki profilinize aittir ve oradan yönetilir.</li>
+                    <li><strong>Bardino üyeliği:</strong> Decimo'nun bu özelliği sunan sürümlerinde ve katıldıysanız, hesabınızı silmek üyeliği sona erdirmez. Üyelik, Ayarlar'daki <strong>Bardino üyeliğinden çık</strong> satırıyla ayrıca sonlandırılır; ayrıntılar <a href="https://bardino.app/uyelik/aydinlatma">aydınlatma metnindedir</a>. İkisinin de silinmesini istiyorsanız önce Bardino'dan çıkın.</li>
                 </ul>
             </section>
 
