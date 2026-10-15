@@ -61,7 +61,7 @@
     <div class="legal-container">
         <div class="legal-header">
             <h1>Privacy policy</h1>
-            <p class="legal-updated">Last updated: 14 October 2026</p>
+            <p class="legal-updated">Last updated: 15 October 2026</p>
         </div>
         <div class="legal-content">
             <p class="legal-intro">Decimo is a number chain puzzle game made by Bardino Technology. This policy explains what data the app collects, why, and what choices you have.</p>
@@ -73,7 +73,7 @@
                 <ul>
                     <li><strong>Automatic account:</strong> on first launch the app creates an anonymous account (Firebase Authentication) with a random identifier. Your progress is saved to our cloud database under this account, and leaderboards use it. It contains no name or e-mail address, and you do not have to sign in for it.</li>
                     <li><strong>Sign-in (optional):</strong> if you sign in with Google (or with Apple on iOS), we receive the e-mail address, name and account identifier that the provider shares, and with Google the address of your profile photo. Your progress is then linked to that account so you can continue on another device. You can play without signing in.</li>
-                    <li><strong>Nickname and leaderboards:</strong> the game gives you a nickname, which you can change. When you appear on a leaderboard or in a tournament, that nickname and your score are <strong>visible to other players</strong>. Your real Google or Apple name is never published.</li>
+                    <li><strong>Nickname and leaderboards:</strong> the game gives you a nickname, which you can change. When you appear on a leaderboard or in a tournament, that nickname and your score are <strong>visible to other players</strong>. Your real Google or Apple name is never published. In versions with Bardino membership, members use one nickname across Decimo, Colmo and Palmo (see section 7).</li>
                     <li><strong>Newsletter (optional):</strong> if you enter your e-mail address in the in-game newsletter field, we store it only to tell you about updates. It is not required to play.</li>
                     <li><strong>Game progress and statistics:</strong> levels completed, stars, coins, gems, purchases, settings and play statistics. Stored on your device and in our cloud database (Firebase Firestore), whether or not you sign in.</li>
                     <li><strong>Device information:</strong> device model, operating system and app version, the device's language and region setting, time zone, the Firebase Analytics app instance ID and, on iOS, the identifier for vendor. Stored with your account record. The region comes from your device settings; the app does not ask for your location.</li>
@@ -119,6 +119,7 @@
                     <li>Local data stays on your device until you uninstall the app or clear its data.</li>
                     <li>Cloud data is kept while your account exists, including the automatic anonymous account. Uninstalling the app does not delete it.</li>
                     <li>You can delete your account and its data in the app: <strong>Profile &gt; Delete Account</strong>. This deletes your cloud progress, account record, coins and gems, purchase history, scores (including past daily and tournament entries), push tokens and newsletter address, clears the game data on your device and signs you out. Purchase records are kept without your account identifier, because they stop the same purchase from being redeemed twice. Details: <a href="/account-deletion.html">Account deletion</a>.</li>
+                    <li>Deleting your account does not end a Bardino membership; <strong>Leave Bardino membership</strong> in Settings does (see section 7).</li>
                     <li>Data already sent to Firebase Analytics, Crashlytics, AdMob or Meta is kept by those services for their own retention periods.</li>
                 </ul>
             </section>
@@ -141,12 +142,27 @@
             </section>
 
             <section class="legal-section">
-                <h2>7. Security and changes</h2>
+                <h2>7. Bardino membership (optional)</h2>
+                <p>Decimo, Colmo and Palmo are made by the same developer. In versions of Decimo that offer it, <strong>Bardino membership</strong> is a free, optional membership shared by the three games: one nickname across them, a daily streak that any of the three can keep going, and gifts. It works with a Google sign-in (or Apple on iOS) and is open only to people aged 13 or over. What Bardino's server keeps, for how long, on what legal basis and how to use your rights is set out in the membership's own <a href="https://bardino.app/uyelik/aydinlatma#en" target="_blank" rel="noopener">privacy notice</a>. This section covers only what Decimo itself sends and stores. Versions of Decimo without the membership send nothing to Bardino's server.</p>
+                <ul>
+                    <li><strong>Before you join:</strong> Decimo asks Bardino's server (europe-west1-bardino-shared.cloudfunctions.net) whether membership is open. That request carries no identity. Decimo also has its own switch in Firebase Remote Config: while it is off, a player who has not joined, or whose membership this device does not know about yet, sends nothing at all to Bardino's server, not even that question, and sees no membership card. If both say it is open and you have signed in with Google or Apple, Decimo also sends your sign-in token so that the card can show whether you are already a member. This happens when the main screen or Settings opens, when you come back to the game and after you sign in; a recent answer is reused for up to five minutes. A player who has not signed in with Google or Apple never sends a token.</li>
+                    <li><strong>Your sign-in token:</strong> every request except the question whether membership is open carries it. Firebase issues it for your Decimo account, and it contains the account's identifier and e-mail address (with Apple, the relay address if you chose to hide yours). It can also carry the name and, with Google, the profile photo address that the provider shared with Decimo (see section 1); the notice says what the server takes from it. The token of an anonymous account is never sent.</li>
+                    <li><strong>When you join:</strong> the join sheet shows a short summary and links to the membership terms and the privacy notice, and <strong>Join</strong> only works after you tick <em>I am 13 years old or older</em>. Decimo then sends the version of the membership texts you were shown, that confirmation and, for a new membership, your current Decimo nickname if it is 2 to 20 characters long. If you are already a member through Colmo or Palmo, the button reads <strong>Link Decimo</strong> and no nickname is sent.</li>
+                    <li><strong>While you are a member:</strong> Decimo asks for your membership status as above, and sends the date of each daily puzzle you win (your local day), a nickname you change and the identifier of each gift you claim; the welcome gift is claimed right after you join. In return it receives your shared nickname, the games you have linked, your badges, your shared streak and your gifts. Claimed gifts are added to your Decimo coins and power-ups and become part of your game progress (see section 1). Once this device knows you as a member, Decimo keeps these requests going whatever the switches say; leaving stops them.</li>
+                    <li><strong>Your nickname:</strong> a member has one nickname in all three games, and the one on Bardino's server wins. A nickname set in Colmo or Palmo therefore becomes your Decimo nickname and, like any Decimo nickname, is shown to other players on leaderboards and in tournaments. A nickname you change in Decimo changes in the other two games too, and while you are a member it can be at most 20 characters long. The name on your Google or Apple account is never used as the nickname.</li>
+                    <li><strong>On your device:</strong> which Decimo account the membership is linked to, and a daily puzzle win or nickname change that could not be sent yet, for example while offline; it is sent the next time the game reaches the server. These stay in the app's local settings and are not part of your cloud save.</li>
+                    <li><strong>Analytics:</strong> Decimo logs these events to Firebase Analytics: the membership card was shown (as an invitation, as an offer to link Decimo or as a member's card); you joined (a new membership or Decimo linked to an existing one, and how many games are linked); joining failed (an error code); a gift was claimed (its identifier, kind and coin amount); you left (how many games were linked); a sibling game's store page was opened (which game). Coins from a gift also show up in the usual coins-earned event, with Bardino as the source. On Android the store link carries only a tag saying the visit came from Decimo's Bardino card. None of these events carries your e-mail address or your nickname, and like all analytics they are not sent while usage statistics are off in <strong>Settings &gt; Data Collection</strong>.</li>
+                    <li><strong>Leaving:</strong> <strong>Leave Bardino membership</strong> in Settings, shown only to members, deletes your membership record for all three games once you confirm. Your Decimo progress, the gifts you already claimed and your current Decimo nickname stay, and the membership's records on the device are removed. Signing out of Decimo or deleting your Decimo account (see section 4) removes the membership's traces from the device, including anything not yet sent, but does not end the membership. If you want both gone, leave Bardino first.</li>
+                </ul>
+            </section>
+
+            <section class="legal-section">
+                <h2>8. Security and changes</h2>
                 <p>We use industry-standard measures (encrypted transport, Google Cloud infrastructure). No method is 100% secure, but we work to protect your data. We may update this policy; material changes will be posted here with a new "last updated" date.</p>
             </section>
 
             <section class="legal-section">
-                <h2>8. Contact</h2>
+                <h2>9. Contact</h2>
                 <div class="legal-contact">
                     <p><strong>Bardino Technology</strong></p>
                     <p>E-mail: <!--email_off--><a href="mailto:info@bardino.app">info@bardino.app</a><!--/email_off--></p>

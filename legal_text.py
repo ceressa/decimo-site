@@ -36,17 +36,32 @@ bak; kaynagi degisen bir cumle yanlis olur:
   abonelik kosullari      l10n subscriptionTermsAppStore (24 saat kurali
                           Apple'in) ve subscriptionTermsGooglePlay;
                           strings.dart subscriptionTerms platforma gore secer
+  Bardino uyeligi         lib/services/bardino_service.dart (uclar, govdeler,
+  (gizlilik 7. madde)     token yalniz Google/Apple hesabinda),
+                          bardino_kontrol.dart (_yenile gizlilik kapisi,
+                          cihazdaki uc bardino_* anahtari, olaylar, cik,
+                          oturumKapandi), remote_config_service bardino_acik,
+                          nickname_service (adoptShared, 20 sinir),
+                          widgets/bardino/ (katilma sayfasi, cikis satiri),
+                          progress_provider addCoins/grantPowerUps
+
+Bardino bolumu 15.10.2026'da origin/master 0adae32'den okundu. Magazadaki
+surumde (release/1.0.32) Bardino kodu yok; metin bu yuzden "uyeligi sunan
+surumlerde" diye kosullu. Merkezin sakladiklari tekrar edilmez,
+bardino.app/uyelik/aydinlatma'ya baglanir; burada yalniz Decimo'nun kendi
+gonderdigi ve sakladigi var.
 
 Tarih degisirse UPDATED'i guncelle; build.py sayfaya ve sitemap'e yaziyor.
 
 Metni 14.10.2026'da bir yapay zeka (Claude) eski yayindaki metinlerden ve
-oyunun kodundan yazdi. Kullanim kosullarinin Ingilizcesi o gune kadar hic
-yoktu. Bir hukukcu okumadi.
+oyunun kodundan yazdi; Bardino bolumunu 15.10.2026'da yine Claude yazdi.
+Kullanim kosullarinin Ingilizcesi o gune kadar hic yoktu. Bir hukukcu
+okumadi.
 """
 
 # Metnin ozu degistiginde bu tarih degisir (ortak brif kurali 5).
 UPDATED = {
-    "privacy-policy.html": "2026-10-14",
+    "privacy-policy.html": "2026-10-15",
     "terms-of-use.html": "2026-10-14",
     "account-deletion.html": "2026-10-14",
 }
@@ -74,7 +89,7 @@ EN_PRIVACY = """            <p class="legal-intro">Decimo is a number chain puzz
                 <ul>
                     <li><strong>Automatic account:</strong> on first launch the app creates an anonymous account (Firebase Authentication) with a random identifier. Your progress is saved to our cloud database under this account, and leaderboards use it. It contains no name or e-mail address, and you do not have to sign in for it.</li>
                     <li><strong>Sign-in (optional):</strong> if you sign in with Google (or with Apple on iOS), we receive the e-mail address, name and account identifier that the provider shares, and with Google the address of your profile photo. Your progress is then linked to that account so you can continue on another device. You can play without signing in.</li>
-                    <li><strong>Nickname and leaderboards:</strong> the game gives you a nickname, which you can change. When you appear on a leaderboard or in a tournament, that nickname and your score are <strong>visible to other players</strong>. Your real Google or Apple name is never published.</li>
+                    <li><strong>Nickname and leaderboards:</strong> the game gives you a nickname, which you can change. When you appear on a leaderboard or in a tournament, that nickname and your score are <strong>visible to other players</strong>. Your real Google or Apple name is never published. In versions with Bardino membership, members use one nickname across Decimo, Colmo and Palmo (see section 7).</li>
                     <li><strong>Newsletter (optional):</strong> if you enter your e-mail address in the in-game newsletter field, we store it only to tell you about updates. It is not required to play.</li>
                     <li><strong>Game progress and statistics:</strong> levels completed, stars, coins, gems, purchases, settings and play statistics. Stored on your device and in our cloud database (Firebase Firestore), whether or not you sign in.</li>
                     <li><strong>Device information:</strong> device model, operating system and app version, the device's language and region setting, time zone, the Firebase Analytics app instance ID and, on iOS, the identifier for vendor. Stored with your account record. The region comes from your device settings; the app does not ask for your location.</li>
@@ -120,6 +135,7 @@ EN_PRIVACY = """            <p class="legal-intro">Decimo is a number chain puzz
                     <li>Local data stays on your device until you uninstall the app or clear its data.</li>
                     <li>Cloud data is kept while your account exists, including the automatic anonymous account. Uninstalling the app does not delete it.</li>
                     <li>You can delete your account and its data in the app: <strong>Profile &gt; Delete Account</strong>. This deletes your cloud progress, account record, coins and gems, purchase history, scores (including past daily and tournament entries), push tokens and newsletter address, clears the game data on your device and signs you out. Purchase records are kept without your account identifier, because they stop the same purchase from being redeemed twice. Details: <a href="{deletion}">Account deletion</a>.</li>
+                    <li>Deleting your account does not end a Bardino membership; <strong>Leave Bardino membership</strong> in Settings does (see section 7).</li>
                     <li>Data already sent to Firebase Analytics, Crashlytics, AdMob or Meta is kept by those services for their own retention periods.</li>
                 </ul>
             </section>
@@ -142,12 +158,27 @@ EN_PRIVACY = """            <p class="legal-intro">Decimo is a number chain puzz
             </section>
 
             <section class="legal-section">
-                <h2>7. Security and changes</h2>
+                <h2>7. Bardino membership (optional)</h2>
+                <p>Decimo, Colmo and Palmo are made by the same developer. In versions of Decimo that offer it, <strong>Bardino membership</strong> is a free, optional membership shared by the three games: one nickname across them, a daily streak that any of the three can keep going, and gifts. It works with a Google sign-in (or Apple on iOS) and is open only to people aged 13 or over. What Bardino's server keeps, for how long, on what legal basis and how to use your rights is set out in the membership's own <a href="https://bardino.app/uyelik/aydinlatma#en" target="_blank" rel="noopener">privacy notice</a>. This section covers only what Decimo itself sends and stores. Versions of Decimo without the membership send nothing to Bardino's server.</p>
+                <ul>
+                    <li><strong>Before you join:</strong> Decimo asks Bardino's server (europe-west1-bardino-shared.cloudfunctions.net) whether membership is open. That request carries no identity. Decimo also has its own switch in Firebase Remote Config: while it is off, a player who has not joined, or whose membership this device does not know about yet, sends nothing at all to Bardino's server, not even that question, and sees no membership card. If both say it is open and you have signed in with Google or Apple, Decimo also sends your sign-in token so that the card can show whether you are already a member. This happens when the main screen or Settings opens, when you come back to the game and after you sign in; a recent answer is reused for up to five minutes. A player who has not signed in with Google or Apple never sends a token.</li>
+                    <li><strong>Your sign-in token:</strong> every request except the question whether membership is open carries it. Firebase issues it for your Decimo account, and it contains the account's identifier and e-mail address (with Apple, the relay address if you chose to hide yours). It can also carry the name and, with Google, the profile photo address that the provider shared with Decimo (see section 1); the notice says what the server takes from it. The token of an anonymous account is never sent.</li>
+                    <li><strong>When you join:</strong> the join sheet shows a short summary and links to the membership terms and the privacy notice, and <strong>Join</strong> only works after you tick <em>I am 13 years old or older</em>. Decimo then sends the version of the membership texts you were shown, that confirmation and, for a new membership, your current Decimo nickname if it is 2 to 20 characters long. If you are already a member through Colmo or Palmo, the button reads <strong>Link Decimo</strong> and no nickname is sent.</li>
+                    <li><strong>While you are a member:</strong> Decimo asks for your membership status as above, and sends the date of each daily puzzle you win (your local day), a nickname you change and the identifier of each gift you claim; the welcome gift is claimed right after you join. In return it receives your shared nickname, the games you have linked, your badges, your shared streak and your gifts. Claimed gifts are added to your Decimo coins and power-ups and become part of your game progress (see section 1). Once this device knows you as a member, Decimo keeps these requests going whatever the switches say; leaving stops them.</li>
+                    <li><strong>Your nickname:</strong> a member has one nickname in all three games, and the one on Bardino's server wins. A nickname set in Colmo or Palmo therefore becomes your Decimo nickname and, like any Decimo nickname, is shown to other players on leaderboards and in tournaments. A nickname you change in Decimo changes in the other two games too, and while you are a member it can be at most 20 characters long. The name on your Google or Apple account is never used as the nickname.</li>
+                    <li><strong>On your device:</strong> which Decimo account the membership is linked to, and a daily puzzle win or nickname change that could not be sent yet, for example while offline; it is sent the next time the game reaches the server. These stay in the app's local settings and are not part of your cloud save.</li>
+                    <li><strong>Analytics:</strong> Decimo logs these events to Firebase Analytics: the membership card was shown (as an invitation, as an offer to link Decimo or as a member's card); you joined (a new membership or Decimo linked to an existing one, and how many games are linked); joining failed (an error code); a gift was claimed (its identifier, kind and coin amount); you left (how many games were linked); a sibling game's store page was opened (which game). Coins from a gift also show up in the usual coins-earned event, with Bardino as the source. On Android the store link carries only a tag saying the visit came from Decimo's Bardino card. None of these events carries your e-mail address or your nickname, and like all analytics they are not sent while usage statistics are off in <strong>Settings &gt; Data Collection</strong>.</li>
+                    <li><strong>Leaving:</strong> <strong>Leave Bardino membership</strong> in Settings, shown only to members, deletes your membership record for all three games once you confirm. Your Decimo progress, the gifts you already claimed and your current Decimo nickname stay, and the membership's records on the device are removed. Signing out of Decimo or deleting your Decimo account (see section 4) removes the membership's traces from the device, including anything not yet sent, but does not end the membership. If you want both gone, leave Bardino first.</li>
+                </ul>
+            </section>
+
+            <section class="legal-section">
+                <h2>8. Security and changes</h2>
                 <p>We use industry-standard measures (encrypted transport, Google Cloud infrastructure). No method is 100% secure, but we work to protect your data. We may update this policy; material changes will be posted here with a new "last updated" date.</p>
             </section>
 
             <section class="legal-section">
-                <h2>8. Contact</h2>
+                <h2>9. Contact</h2>
                 <div class="legal-contact">
                     <p><strong>Bardino Technology</strong></p>
                     <p>E-mail: {mail}</p>
@@ -262,7 +293,7 @@ TR_PRIVACY = """            <p class="legal-intro">Decimo, Bardino Technology'ni
                 <ul>
                     <li><strong>Otomatik hesap:</strong> uygulama ilk açılışta rastgele bir kimlik taşıyan anonim bir hesap (Firebase Authentication) oluşturur. İlerlemeniz bu hesapla bulut veritabanımıza kaydedilir, lider tabloları da bu hesabı kullanır. Hesapta adınız veya e-posta adresiniz yoktur ve bunun için giriş yapmanız gerekmez.</li>
                     <li><strong>Giriş (isteğe bağlı):</strong> Google ile (iOS'ta Apple ile de) giriş yaparsanız sağlayıcının paylaştığı e-posta adresinizi, adınızı ve hesap kimliğinizi, Google ile girişte ayrıca profil fotoğrafınızın adresini alırız. İlerlemeniz bu hesaba bağlanır ve başka bir cihazda devam edebilirsiniz. Giriş yapmadan da oynayabilirsiniz.</li>
-                    <li><strong>Takma ad ve lider tabloları:</strong> oyun size bir takma ad verir, bunu değiştirebilirsiniz. Bir lider tablosunda veya turnuvada yer aldığınızda takma adınız ve skorunuz <strong>diğer oyunculara açık şekilde</strong> görünür. Gerçek Google veya Apple adınız hiçbir zaman yayınlanmaz.</li>
+                    <li><strong>Takma ad ve lider tabloları:</strong> oyun size bir takma ad verir, bunu değiştirebilirsiniz. Bir lider tablosunda veya turnuvada yer aldığınızda takma adınız ve skorunuz <strong>diğer oyunculara açık şekilde</strong> görünür. Gerçek Google veya Apple adınız hiçbir zaman yayınlanmaz. Bardino üyeliğinin bulunduğu sürümlerde üyeler Decimo, Colmo ve Palmo'da tek bir takma ad kullanır (bkz. madde 7).</li>
                     <li><strong>Bülten (isteğe bağlı):</strong> oyun içindeki bülten alanına e-posta adresinizi girerseniz, yalnızca güncellemelerden haberdar etmek için saklarız. Oynamak için gerekmez.</li>
                     <li><strong>Oyun ilerlemesi ve istatistikler:</strong> tamamlanan bölümler, yıldızlar, altın, elmas, satın almalar, ayarlar ve oyun istatistikleri. Giriş yapıp yapmadığınızdan bağımsız olarak cihazınızda ve bulut veritabanımızda (Firebase Firestore) saklanır.</li>
                     <li><strong>Cihaz bilgisi:</strong> cihaz modeli, işletim sistemi ve uygulama sürümü, cihazın dil ve bölge ayarı, saat dilimi, Firebase Analytics'in uygulama kurulum kimliği (app instance ID) ve iOS'ta satıcıya özel cihaz kimliği (identifier for vendor). Hesap kaydınızla birlikte saklanır. Bölge bilgisi cihaz ayarlarınızdan gelir; uygulama konum izni istemez.</li>
@@ -308,6 +339,7 @@ TR_PRIVACY = """            <p class="legal-intro">Decimo, Bardino Technology'ni
                     <li>Yerel veriler, uygulamayı kaldırana veya uygulama verisini temizleyene kadar cihazınızda kalır.</li>
                     <li>Bulut verisi, otomatik anonim hesap dahil, hesabınız var oldukça saklanır. Uygulamayı kaldırmak bu veriyi silmez.</li>
                     <li>Hesabınızı ve verilerinizi uygulama içinden silebilirsiniz: <strong>Profil &gt; Hesabı Sil</strong>. Bu işlem bulut ilerlemenizi, hesap kaydınızı, altın ve elmaslarınızı, satın alma geçmişinizi, skorlarınızı (geçmiş günlük ve turnuva kayıtları dahil), bildirim jetonlarınızı ve bülten adresinizi siler, cihazınızdaki oyun verisini temizler ve oturumunuzu kapatır. Satın alma kayıtları hesap kimliğiniz çıkarılarak saklanır; aynı satın almanın ikinci kez kullanılmasını engellerler. Ayrıntılar: <a href="{deletion}">Hesap silme</a>.</li>
+                    <li>Hesabınızı silmek Bardino üyeliğini sona erdirmez; onu Ayarlar'daki <strong>Bardino üyeliğinden çık</strong> satırı sona erdirir (bkz. madde 7).</li>
                     <li>Firebase Analytics, Crashlytics, AdMob veya Meta'ya daha önce gönderilmiş veriler, bu hizmetlerin kendi saklama süreleri boyunca onlarda kalır.</li>
                 </ul>
             </section>
@@ -330,12 +362,27 @@ TR_PRIVACY = """            <p class="legal-intro">Decimo, Bardino Technology'ni
             </section>
 
             <section class="legal-section">
-                <h2>7. Güvenlik ve değişiklikler</h2>
+                <h2>7. Bardino üyeliği (isteğe bağlı)</h2>
+                <p>Decimo, Colmo ve Palmo aynı geliştiricinin oyunlarıdır. Decimo'nun bu özelliği sunan sürümlerinde <strong>Bardino üyeliği</strong>, üç oyunun ortak, ücretsiz ve isteğe bağlı üyeliğidir: üç oyunda tek takma ad, üçünden herhangi birinde sürdürülebilen ortak günlük seri ve hediyeler. Google girişiyle (iOS'ta Apple girişiyle de) çalışır ve yalnızca 13 yaşında ya da daha büyük olanlara açıktır. Bardino sunucusunun neyi, ne kadar süre ve hangi hukuki sebeple tuttuğu ve haklarınızı nasıl kullanacağınız, üyeliğin kendi <a href="https://bardino.app/uyelik/aydinlatma" target="_blank" rel="noopener">Bardino Üyeliği Aydınlatma Metni</a>'nde yazılıdır. Bu bölüm yalnızca Decimo'nun kendisinin gönderdiklerini ve sakladıklarını anlatır. Üyeliği sunmayan Decimo sürümleri Bardino sunucusuna hiçbir şey göndermez.</p>
+                <ul>
+                    <li><strong>Üye olmadan önce:</strong> Decimo, Bardino sunucusuna (europe-west1-bardino-shared.cloudfunctions.net) üyeliğin açık olup olmadığını sorar. Bu istek hiçbir kimlik taşımaz. Decimo'nun Firebase Remote Config'te ayrıca kendi anahtarı vardır: bu anahtar kapalıyken üye olmayan ya da üyeliğini bu cihazın henüz bilmediği bir oyuncu Bardino sunucusuna hiçbir şey göndermez, bu soruyu bile sormaz ve üyelik kartını görmez. Anahtar da sunucu da açık diyorsa ve Google ya da Apple ile giriş yaptıysanız Decimo, kartın zaten üye olup olmadığınızı gösterebilmesi için giriş jetonunuzu da gönderir. Bu istek ana ekran ya da Ayarlar açıldığında, oyuna geri döndüğünüzde ve giriş yaptıktan sonra gider; yakın zamanda alınmış bir cevap beş dakikaya kadar yeniden kullanılır. Google ya da Apple ile giriş yapmamış bir oyuncu hiçbir zaman jeton göndermez.</li>
+                    <li><strong>Giriş jetonunuz:</strong> üyeliğin açık olup olmadığını soran istek dışındaki her istek bu jetonu taşır. Jetonu Firebase, Decimo hesabınız için üretir; içinde hesabın kimliği ve e-posta adresi bulunur (Apple'da adresinizi gizlemeyi seçtiyseniz Apple'ın verdiği yönlendirme adresi). Sağlayıcının Decimo ile paylaştığı adı ve Google'da profil fotoğrafınızın adresini de taşıyabilir (bkz. madde 1); sunucunun bundan ne aldığını aydınlatma metni yazar. Anonim hesabın jetonu hiçbir zaman gönderilmez.</li>
+                    <li><strong>Üye olurken:</strong> katılma sayfası kısa bir özet ile üyelik koşullarına ve aydınlatma metnine bağlantılar gösterir; <strong>Üye ol</strong> düğmesi ancak <em>13 yaşında ya da daha büyüğüm</em> kutusunu işaretledikten sonra çalışır. Decimo bunun üzerine size gösterilen üyelik metinlerinin sürümünü, bu onayı ve yeni bir üyelikte, 2 ile 20 karakter arasındaysa o anki Decimo takma adınızı gönderir. Colmo ya da Palmo üzerinden zaten üyeyseniz düğmede <strong>Decimo'yu bağla</strong> yazar ve takma ad gönderilmez.</li>
+                    <li><strong>Üyeyken:</strong> Decimo üyelik durumunuzu yukarıdaki gibi sorar; kazandığınız her günlük bulmacanın tarihini (kendi yerel gününüz), değiştirdiğiniz takma adı ve aldığınız her hediyenin kimliğini gönderir. Hoş geldin hediyesi üye olur olmaz alınır. Karşılığında ortak takma adınızı, bağladığınız oyunları, rozetlerinizi, ortak serinizi ve hediyelerinizi alır. Aldığınız hediyeler Decimo'daki altın ve güçlendirmelerinize eklenir ve oyun ilerlemenizin parçası olur (bkz. madde 1). Bu cihaz sizi üye olarak tanıdıktan sonra Decimo, anahtarlar ne derse desin bu istekleri sürdürür; onları durduran, üyelikten çıkmaktır.</li>
+                    <li><strong>Takma adınız:</strong> üyenin üç oyunda tek bir takma adı vardır ve Bardino sunucusundaki geçerli olur. Bu yüzden Colmo ya da Palmo'da koyduğunuz takma ad Decimo'daki takma adınız olur ve her Decimo takma adı gibi lider tablolarında ve turnuvalarda diğer oyunculara görünür. Decimo'da değiştirdiğiniz takma ad diğer iki oyunda da değişir; üyeyken en fazla 20 karakter olabilir. Google ya da Apple hesabınızdaki ad hiçbir zaman takma ad olarak kullanılmaz.</li>
+                    <li><strong>Cihazınızda:</strong> üyeliğin hangi Decimo hesabına bağlı olduğu ve henüz gönderilemeyen bir günlük bulmaca galibiyeti ya da takma ad değişikliği (örneğin çevrimdışıyken); bunlar oyun sunucuya bir sonraki ulaştığında gönderilir. Hepsi uygulamanın yerel ayarlarında durur ve bulut kaydınıza girmez.</li>
+                    <li><strong>Ölçüm:</strong> Decimo, Firebase Analytics'e şu olayları yazar: üyelik kartı gösterildi (davet, Decimo'yu bağlama teklifi ya da üye kartı olarak); üye olundu (yeni bir üyelik mi yoksa Decimo'nun var olan üyeliğe bağlanması mı olduğu ve kaç oyunun bağlı olduğu); üyelik başlayamadı (bir hata kodu); bir hediye alındı (kimliği, cinsi ve altın miktarı); üyelikten çıkıldı (kaç oyunun bağlı olduğu); bir kardeş oyunun mağaza sayfası açıldı (hangi oyun). Hediyeden gelen altın, kaynağı Bardino olarak, alışılmış altın kazanma olayında da görünür. Android'de mağaza bağlantısı yalnızca ziyaretin Decimo'nun Bardino kartından geldiğini söyleyen bir etiket taşır. Bu olayların hiçbiri e-posta adresinizi ya da takma adınızı taşımaz; tüm ölçüm gibi, <strong>Ayarlar &gt; Veri Toplama</strong>'da kullanım istatistikleri kapalıyken gönderilmezler.</li>
+                    <li><strong>Ayrılmak:</strong> Ayarlar'daki, yalnızca üyelere görünen <strong>Bardino üyeliğinden çık</strong> satırı, onayladığınızda üç oyundaki üyelik kaydınızı siler. Decimo'daki ilerlemeniz, aldığınız hediyeler ve o anki Decimo takma adınız kalır; üyeliğin cihazdaki kayıtları silinir. Decimo'dan çıkış yapmak ya da Decimo hesabınızı silmek (bkz. madde 4), henüz gönderilmemiş olanlar dahil üyeliğin cihazdaki izlerini siler ama üyeliği sona erdirmez. İkisinin de silinmesini istiyorsanız önce Bardino'dan çıkın.</li>
+                </ul>
+            </section>
+
+            <section class="legal-section">
+                <h2>8. Güvenlik ve değişiklikler</h2>
                 <p>Sektör standardı önlemler kullanırız (şifreli aktarım, Google Cloud altyapısı). Hiçbir yöntem %100 güvenli değildir, ancak verinizi korumak için çalışırız. Bu politikayı güncelleyebiliriz; önemli değişiklikler yeni bir "son güncelleme" tarihiyle burada yayımlanır.</p>
             </section>
 
             <section class="legal-section">
-                <h2>8. İletişim</h2>
+                <h2>9. İletişim</h2>
                 <div class="legal-contact">
                     <p><strong>Bardino Technology</strong></p>
                     <p>E-posta: {mail}</p>
